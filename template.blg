@@ -1,0 +1,30 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'template.blg'
+[32] biber-darwin:340> INFO - === Sun Jun  9, 2024, 02:51:10
+[43] Biber.pm:419> INFO - Reading 'template.bcf'
+[77] Biber.pm:979> INFO - Found 24 citekeys in bib section 0
+[77] Biber.pm:979> INFO - Found 1 citekeys in bib section 1
+[78] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[88] Biber.pm:4419> INFO - Processing section 0
+[93] Biber.pm:4610> INFO - Looking for bibtex file './NOVAthesisFiles/fix-bib.bib' for section 0
+[94] bibtex.pm:1713> INFO - LaTeX decoding ...
+[95] bibtex.pm:1519> INFO - Found BibTeX data source './NOVAthesisFiles/fix-bib.bib'
+[96] Biber.pm:4610> INFO - Looking for bibtex file 'Bibliography/bibliography.bib' for section 0
+[97] bibtex.pm:1713> INFO - LaTeX decoding ...
+[109] bibtex.pm:1519> INFO - Found BibTeX data source 'Bibliography/bibliography.bib'
+[200] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[200] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[200] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[200] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[210] Biber.pm:4419> INFO - Processing section 1
+[210] Biber.pm:4610> INFO - Looking for bibtex file './NOVAthesisFiles/fix-bib.bib' for section 1
+[215] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[215] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[215] Biber.pm:4239> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[215] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[216] bbl.pm:660> INFO - Writing 'template.bbl' with encoding 'UTF-8'
+[223] bbl.pm:763> INFO - Output to template.bbl
+[223] Biber.pm:131> WARN - legacy month field 'December' in entry 'paxos' is not an integer - this will probably not sort properly.
+[224] Biber.pm:131> WARN - ISBN '9798400716737' in entry 'solana_halting_problem' is invalid - run biber with '--validate_datamodel' for details.
+[224] Biber.pm:131> WARN - legacy month field 'November' in entry 'pastry' is not an integer - this will probably not sort properly.
+[224] Biber.pm:133> INFO - WARNINGS: 3
