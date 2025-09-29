@@ -14,8 +14,8 @@ This thesis aims to address practical challenges in designing, implementing and 
 protocols by providing a simulation environment to analyse their behaviour and offering empirical metrics of their runtime in
 different environments and conditions. To achieve this we intend to take Modular Blockchain Simulator (\href{https://github.com/mce-alves/MOBS
 }{MOBS}) and expand the previously done work to help better test and validate these protocols with tools to extract statistics and 
-qualitative data about the protocols runtime. We also want to provide a more dynamic and independent network layer
-to better simulate real-world conditions. This will allow programmers to more quickly prototype protocols or solutions
+qualitative data about their runtime. We also tested the viability to provide a more dynamic and independent network layer
+to better simulate real-world conditions, this would allow programmers to more quickly prototype protocols or solutions
 in a simulated, modular and parameterizable environment where executions can be repeated and a wide range of scenarios
 can be used for testing.
 
@@ -61,9 +61,9 @@ re-structure the network after a node fails or leaves the system, there is also 
 evaluate the protocols' execution.
 
 \section{Problem}\label{sub:problem}
-Consensus protocols are not trivial to define or understand correctly~\cite{paxos, have_we_reached_consensus}
-and in blockchain systems, where the behaviour can be dynamic and mostly 
-financial transactions are dealt with, their correctness is crucial and errors can be costly. One example of this is Ethereum moving from 
+Consensus protocols are inherently complex to design and implement correctly~\cite{paxos, have_we_reached_consensus}.
+In blockchain systems, where dynamic behavior and financial transactions are predominant, protocol correctness becomes critical,
+as even minor errors can result in significant financial losses and system failures. One example of this is Ethereum moving from 
 Proof of Work to a Proof of Stake consensus; this opened the protocol to vulnerabilities to bouncing attacks on liveness~\cite{ethereum_analysis}.
 This type of attack prevents the chain from being finalized because the main selected chain in the fork choice rule
 is continually bouncing between two alternative branches.
@@ -74,8 +74,8 @@ a single malicious validator can halt the Solana blockchain~\cite{solana_halting
 inconsistencies in the behaviour between what is described in the documentation and what the protocol showed since Solana's implementation
 has deviated in undocumented ways from the available protocol design descriptions.
 
-Consensus and blockchain protocols are usually described with pseudocode and model checked with idealized languages - 
-this does not reflect the implementations. Since validating correctness is very costly\cite{desidn_and_validation}, before planing an 
+Consensus and blockchain protocols are usually described with pseudocode and model checked with idealized languages that 
+not reflect the implementations. Since validating correctness is very costly\cite{desidn_and_validation}, before planning an
 implementation, developers should test their ideas and prototypes. There is a lack of methodologies to develop,
 evaluate, tune and replicate these protocols, opening a need for extensible and modular tools for consensus analysis and
 experimental labs for rapid prototyping.
@@ -129,24 +129,21 @@ a wide range of parameterizable scenarios.
 
 To achieve this we extended MOBS (\href{https://github.com/RMLoureiro/MOBS}{MOBS-Fork}) in the following ways:
 \begin{itemize}
-  \item Implement and study what properties are needed to evaluate the execution of consensus protocols(WE STILL NEED TO KNOW WHAT THOSE).
-  \item Improve the network layer by implementing Paxos and Chord.
+  \item Implement and study what properties are needed to evaluate the execution of consensus protocols, these include Paxos, Chandra-Toueg, PBFT and Ethereum.
   \item Evaluate the execution of blockchain protocols and replicate known
     vulnerability scenarios, namely Ethereum Probabilistic Bouncing attack\cite{ethereum_analysis} and 
     Solana Halting Problem\cite{solana_halting_problem}.
 \end{itemize}
-\section{Document Organization}\label{sub:document_organization}
-
-The remainder of this document is organized like so:
-
-Chapter~\ref{cha:Background} studies related work: in particular we will cover several membership protocols and some implementations
-some simple consensus protocols, and an overview of the types of blockchain consensus;
 
 
-Chapter~\ref{cha:related_work} presents Babel which is a framework for implemented distributed system protocols, and NetworkX,
-a package in Python that provides network analysis tools.
 
-Chapter~\ref{cha:mobs} presents the MOBS implementation.
-
-Chapter~\ref{cha:work_to_be_developed} lays out the proposed work to address the problem
-introduced in this chapter and the calendarization of its implementation.
+\section{Contributions}\label{sub:contributions}
+The contributions to this thesis focues on the implementation and evaluation of consensus protocols in MOBS, to verify that MOBS can be used
+has a tool for prototyping and validation. The protocols implemented and evaluated were:
+\begin{itemize}
+  \item Chandra-Toueg~\cite{chandra}, a simple consensus protocol to ensure the logs from MOBS can be used to evaluate consensus properties,
+  \item Paxos~\cite{paxos}, a more complex consensus protocol that allows for greater flexibility in the face of network partitions,
+  \item PBFT~\cite{pbft}, a practical Byzantine fault-tolerant protocol that is widely used in permissioned blockchain systems,
+  \item Ethereum~\cite{ethereum}, a decentralized platform that enables the creation of smart contracts and decentralized applications and specifically
+replicated the Probabilistic Bouncing attack and the patch that was implemented validating its executions.
+\end{itemize}

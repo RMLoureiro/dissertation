@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.3 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,8 +18,8 @@
 
 
 \refsection{0}
-  \datalist[entry]{none/global//global/global}
-    \entry{tezos}{article}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{tezos}{article}{}{}
       \name{author}{3}{}{%
         {{hash=2be3aaebf830fc5b984ee43cd2e43865}{%
            family={Allombert},
@@ -39,10 +39,12 @@
       }
       \strng{namehash}{552f723119af3ef1715ba6206a566266}
       \strng{fullhash}{552f723119af3ef1715ba6206a566266}
+      \strng{fullhashraw}{552f723119af3ef1715ba6206a566266}
       \strng{bibnamehash}{552f723119af3ef1715ba6206a566266}
       \strng{authorbibnamehash}{552f723119af3ef1715ba6206a566266}
       \strng{authornamehash}{552f723119af3ef1715ba6206a566266}
       \strng{authorfullhash}{552f723119af3ef1715ba6206a566266}
+      \strng{authorfullhashraw}{552f723119af3ef1715ba6206a566266}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -62,7 +64,7 @@
       \verb http://arxiv.org/abs/1909.08458
       \endverb
     \endentry
-    \entry{ethereum}{article}{}
+    \entry{ethereum}{article}{}{}
       \name{author}{1}{}{%
         {{hash=850981945102d0f671b6762173c8988a}{%
            family={Buterin},
@@ -72,10 +74,12 @@
       }
       \strng{namehash}{850981945102d0f671b6762173c8988a}
       \strng{fullhash}{850981945102d0f671b6762173c8988a}
+      \strng{fullhashraw}{850981945102d0f671b6762173c8988a}
       \strng{bibnamehash}{850981945102d0f671b6762173c8988a}
       \strng{authorbibnamehash}{850981945102d0f671b6762173c8988a}
       \strng{authornamehash}{850981945102d0f671b6762173c8988a}
       \strng{authorfullhash}{850981945102d0f671b6762173c8988a}
+      \strng{authorfullhashraw}{850981945102d0f671b6762173c8988a}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -89,7 +93,7 @@
       \verb https://github.com/ethereum/wiki/wiki/White-Paper
       \endverb
     \endentry
-    \entry{ethereum_analysis}{misc}{}
+    \entry{ethereum_analysis}{misc}{}{}
       \name{author}{3}{}{%
         {{hash=668a54036ed9215e9c1d44cf31211dcd}{%
            family={Pavloff},
@@ -109,10 +113,12 @@
       }
       \strng{namehash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{fullhash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
+      \strng{fullhashraw}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{bibnamehash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{authorbibnamehash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{authornamehash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{authorfullhash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
+      \strng{authorfullhashraw}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
@@ -125,7 +131,7 @@
       \verb 2210.16070
       \endverb
     \endentry
-    \entry{paxos}{article}{}
+    \entry{paxos}{article}{}{}
       \name{author}{1}{}{%
         {{hash=5d77435450d10a850a5b58577b9a456b}{%
            family={Lamport},
@@ -135,10 +141,12 @@
       }
       \strng{namehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{fullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{fullhashraw}{5d77435450d10a850a5b58577b9a456b}
       \strng{bibnamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorbibnamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
+      \strng{authorfullhashraw}{5d77435450d10a850a5b58577b9a456b}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -158,7 +166,7 @@
       \verb https://www.microsoft.com/en-us/research/publication/paxos-made-simple/
       \endverb
     \endentry
-    \entry{have_we_reached_consensus}{inproceedings}{}
+    \entry{have_we_reached_consensus}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=ab451ce5642ffe31693f5d0a199bee34}{%
            family={Howard},
@@ -173,10 +181,12 @@
       }
       \strng{namehash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{fullhash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
+      \strng{fullhashraw}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{bibnamehash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{authorbibnamehash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{authornamehash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{authorfullhash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
+      \strng{authorfullhashraw}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \field{sortinit}{5}
       \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
@@ -187,7 +197,7 @@
       \field{pages}{1\bibrangedash 9}
       \range{pages}{9}
     \endentry
-    \entry{solana}{article}{}
+    \entry{solana}{article}{}{}
       \name{author}{1}{}{%
         {{hash=09c9e78c1481cee9e6190c05e10a8924}{%
            family={Yakovenko},
@@ -197,10 +207,12 @@
       }
       \strng{namehash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{fullhash}{09c9e78c1481cee9e6190c05e10a8924}
+      \strng{fullhashraw}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{bibnamehash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{authorbibnamehash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{authornamehash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{authorfullhash}{09c9e78c1481cee9e6190c05e10a8924}
+      \strng{authorfullhashraw}{09c9e78c1481cee9e6190c05e10a8924}
       \field{sortinit}{7}
       \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
@@ -209,7 +221,7 @@
       \field{title}{Solana: A new architecture for a high performance blockchain v0. 8.13}
       \field{year}{2018}
     \endentry
-    \entry{solana_halting_problem}{inproceedings}{}
+    \entry{solana_halting_problem}{inproceedings}{}{}
       \name{author}{4}{}{%
         {{hash=e03e8e5d3222409381fe2592683fd50a}{%
            family={Sliwinski},
@@ -240,10 +252,12 @@
       }
       \strng{namehash}{f8b4730975b893fa06bc894cf1c68332}
       \strng{fullhash}{02c8649b966cba2d3a154a859c0c7c6d}
+      \strng{fullhashraw}{02c8649b966cba2d3a154a859c0c7c6d}
       \strng{bibnamehash}{f8b4730975b893fa06bc894cf1c68332}
       \strng{authorbibnamehash}{f8b4730975b893fa06bc894cf1c68332}
       \strng{authornamehash}{f8b4730975b893fa06bc894cf1c68332}
       \strng{authorfullhash}{02c8649b966cba2d3a154a859c0c7c6d}
+      \strng{authorfullhashraw}{02c8649b966cba2d3a154a859c0c7c6d}
       \field{sortinit}{8}
       \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
@@ -267,7 +281,7 @@
       \endverb
       \keyw{Blockchain Security Denial of Service.}
     \endentry
-    \entry{desidn_and_validation}{inproceedings}{}
+    \entry{desidn_and_validation}{inproceedings}{}{}
       \name{author}{1}{}{%
         {{hash=9988303f76dfdb0a8fdf32a54e057755}{%
            family={Holzmann},
@@ -277,10 +291,12 @@
       }
       \strng{namehash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{fullhash}{9988303f76dfdb0a8fdf32a54e057755}
+      \strng{fullhashraw}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{bibnamehash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{authorbibnamehash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{authornamehash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{authorfullhash}{9988303f76dfdb0a8fdf32a54e057755}
+      \strng{authorfullhashraw}{9988303f76dfdb0a8fdf32a54e057755}
       \field{sortinit}{9}
       \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
@@ -294,7 +310,78 @@
       \verb https://api.semanticscholar.org/CorpusID:61218849
       \endverb
     \endentry
-    \entry{chord}{article}{}
+    \entry{chandra}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=6f6ae1bc577a18f6410f2da26c03bc76}{%
+           family={Chandra},
+           familyi={C\bibinitperiod},
+           given={Tushar\bibnamedelima Deepak},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=cb2a37b3f7247366eddc401ec2bef7cf}{%
+           family={Toueg},
+           familyi={T\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{fullhash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{fullhashraw}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{bibnamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{authorbibnamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{authornamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{authorfullhash}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \strng{authorfullhashraw}{5c86a8783c1be8ff9f10a7342d7ea242}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the ACM (JACM)}
+      \field{number}{2}
+      \field{title}{Unreliable failure detectors for reliable distributed systems}
+      \field{volume}{43}
+      \field{year}{1996}
+      \field{pages}{225\bibrangedash 267}
+      \range{pages}{43}
+    \endentry
+    \entry{pbft}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{2}{}{%
+        {{hash=084730901e78fd30411e6af546d8540f}{%
+           family={Castro},
+           familyi={C\bibinitperiod},
+           given={Miguel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8d8bf2803c6ae711dd3210bfe6b7086f}{%
+           family={Liskov},
+           familyi={L\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{44df5ab61085b2feb5835839e2526722}
+      \strng{fullhash}{44df5ab61085b2feb5835839e2526722}
+      \strng{fullhashraw}{44df5ab61085b2feb5835839e2526722}
+      \strng{bibnamehash}{44df5ab61085b2feb5835839e2526722}
+      \strng{authorbibnamehash}{44df5ab61085b2feb5835839e2526722}
+      \strng{authornamehash}{44df5ab61085b2feb5835839e2526722}
+      \strng{authorfullhash}{44df5ab61085b2feb5835839e2526722}
+      \strng{authorfullhashraw}{44df5ab61085b2feb5835839e2526722}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{OsDI}
+      \field{number}{1999}
+      \field{title}{Practical byzantine fault tolerance}
+      \field{volume}{99}
+      \field{year}{1999}
+      \field{pages}{173\bibrangedash 186}
+      \range{pages}{14}
+    \endentry
+    \entry{chord}{article}{}{}
       \name{author}{7}{}{%
         {{hash=6c0e25b703ac672324ac72dba3eb4446}{%
            family={Stoica},
@@ -334,10 +421,12 @@
       }
       \strng{namehash}{c59a6edaef8c6a0caeb1a10cd6272035}
       \strng{fullhash}{aa3d1bc0d76b2bfaa43bb90692b32797}
+      \strng{fullhashraw}{aa3d1bc0d76b2bfaa43bb90692b32797}
       \strng{bibnamehash}{c59a6edaef8c6a0caeb1a10cd6272035}
       \strng{authorbibnamehash}{c59a6edaef8c6a0caeb1a10cd6272035}
       \strng{authornamehash}{c59a6edaef8c6a0caeb1a10cd6272035}
       \strng{authorfullhash}{aa3d1bc0d76b2bfaa43bb90692b32797}
+      \strng{authorfullhashraw}{aa3d1bc0d76b2bfaa43bb90692b32797}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -353,7 +442,7 @@
       \verb 10.1109/TNET.2002.808407
       \endverb
     \endentry
-    \entry{pastry}{inproceedings}{}
+    \entry{pastry}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=0a533a242403515a10bbc9b4e89b9a7c}{%
            family={Rowstron},
@@ -371,10 +460,12 @@
       }
       \strng{namehash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \strng{fullhash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
+      \strng{fullhashraw}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \strng{bibnamehash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \strng{authorbibnamehash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \strng{authornamehash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \strng{authorfullhash}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
+      \strng{authorfullhashraw}{0ebefdfc9e35ad5f15ba8010cb65f9ac}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -396,7 +487,7 @@
       \verb https://www.microsoft.com/en-us/research/publication/pastry-scalable-distributed-object-location-and-routing-for-large-scale-peer-to-peer-systems/
       \endverb
     \endentry
-    \entry{swim}{inproceedings}{}
+    \entry{swim}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=7308ed786f4f0e133a08199872f5b395}{%
            family={Das},
@@ -416,10 +507,12 @@
       }
       \strng{namehash}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \strng{fullhash}{b4c2f2caae7ad9c1c804ba14bf66d908}
+      \strng{fullhashraw}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \strng{bibnamehash}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \strng{authorbibnamehash}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \strng{authornamehash}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \strng{authorfullhash}{b4c2f2caae7ad9c1c804ba14bf66d908}
+      \strng{authorfullhashraw}{b4c2f2caae7ad9c1c804ba14bf66d908}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -433,7 +526,7 @@
       \verb 10.1109/DSN.2002.1028914
       \endverb
     \endentry
-    \entry{hyparview}{inproceedings}{}
+    \entry{hyparview}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=106b679d45af07d117b237f56dc95469}{%
            family={Leitao},
@@ -459,10 +552,12 @@
       }
       \strng{namehash}{8f2ddefc34459078a32130518cebf53a}
       \strng{fullhash}{8f2ddefc34459078a32130518cebf53a}
+      \strng{fullhashraw}{8f2ddefc34459078a32130518cebf53a}
       \strng{bibnamehash}{8f2ddefc34459078a32130518cebf53a}
       \strng{authorbibnamehash}{8f2ddefc34459078a32130518cebf53a}
       \strng{authornamehash}{8f2ddefc34459078a32130518cebf53a}
       \strng{authorfullhash}{8f2ddefc34459078a32130518cebf53a}
+      \strng{authorfullhashraw}{8f2ddefc34459078a32130518cebf53a}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
@@ -484,7 +579,7 @@
       \verb https://doi.org/10.1109/DSN.2007.56
       \endverb
     \endentry
-    \entry{tman}{article}{}
+    \entry{tman}{article}{}{}
       \name{author}{3}{}{%
         {{hash=2373df2581f0556778d5dd54d705d300}{%
            family={Jelasity},
@@ -510,12 +605,14 @@
       }
       \strng{namehash}{2f2c5e64ce1c9719b727cc9c232fc61a}
       \strng{fullhash}{2f2c5e64ce1c9719b727cc9c232fc61a}
+      \strng{fullhashraw}{2f2c5e64ce1c9719b727cc9c232fc61a}
       \strng{bibnamehash}{2f2c5e64ce1c9719b727cc9c232fc61a}
       \strng{authorbibnamehash}{2f2c5e64ce1c9719b727cc9c232fc61a}
       \strng{authornamehash}{2f2c5e64ce1c9719b727cc9c232fc61a}
       \strng{authorfullhash}{2f2c5e64ce1c9719b727cc9c232fc61a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{authorfullhashraw}{2f2c5e64ce1c9719b727cc9c232fc61a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1389-1286}
@@ -538,7 +635,7 @@
       \endverb
       \keyw{Bootstrapping,Gossip-based protocols,Overlay networks,Self-organizing middleware}
     \endentry
-    \entry{xbot}{article}{}
+    \entry{xbot}{article}{}{}
       \name{author}{4}{}{%
         {{hash=d671f26f95ae952ec0e9b83750ec18aa}{%
            family={Leitão},
@@ -569,12 +666,14 @@
       }
       \strng{namehash}{2e74a2108610f9cfc0fec1ceff815abc}
       \strng{fullhash}{e460f2e6e03c477494184265b8757e65}
+      \strng{fullhashraw}{e460f2e6e03c477494184265b8757e65}
       \strng{bibnamehash}{2e74a2108610f9cfc0fec1ceff815abc}
       \strng{authorbibnamehash}{2e74a2108610f9cfc0fec1ceff815abc}
       \strng{authornamehash}{2e74a2108610f9cfc0fec1ceff815abc}
       \strng{authorfullhash}{e460f2e6e03c477494184265b8757e65}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{authorfullhashraw}{e460f2e6e03c477494184265b8757e65}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{1045-9219}
@@ -587,7 +686,7 @@
       \verb http://doi.ieeecomputersociety.org/10.1109/TPDS.2012.29
       \endverb
     \endentry
-    \entry{distributed_systems_concepts}{book}{}
+    \entry{distributed_systems_concepts}{book}{}{}
       \name{author}{3}{}{%
         {{hash=ba7558d26c2b47c68bbd9c3ae78afe6f}{%
            family={Coulouris},
@@ -610,12 +709,14 @@
       }
       \strng{namehash}{f2dc1636d69dcbdc137451db7e22ca0c}
       \strng{fullhash}{f2dc1636d69dcbdc137451db7e22ca0c}
+      \strng{fullhashraw}{f2dc1636d69dcbdc137451db7e22ca0c}
       \strng{bibnamehash}{f2dc1636d69dcbdc137451db7e22ca0c}
       \strng{authorbibnamehash}{f2dc1636d69dcbdc137451db7e22ca0c}
       \strng{authornamehash}{f2dc1636d69dcbdc137451db7e22ca0c}
       \strng{authorfullhash}{f2dc1636d69dcbdc137451db7e22ca0c}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \strng{authorfullhashraw}{f2dc1636d69dcbdc137451db7e22ca0c}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{4th rev. ed.}
@@ -624,41 +725,7 @@
       \field{year}{2005}
       \keyw{addison-wesley books coulouris distributed}
     \endentry
-    \entry{chandra}{article}{}
-      \name{author}{2}{}{%
-        {{hash=6f6ae1bc577a18f6410f2da26c03bc76}{%
-           family={Chandra},
-           familyi={C\bibinitperiod},
-           given={Tushar\bibnamedelima Deepak},
-           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=cb2a37b3f7247366eddc401ec2bef7cf}{%
-           family={Toueg},
-           familyi={T\bibinitperiod},
-           given={Sam},
-           giveni={S\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {ACM New York, NY, USA}%
-      }
-      \strng{namehash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \strng{fullhash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \strng{bibnamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \strng{authorbibnamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \strng{authornamehash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \strng{authorfullhash}{5c86a8783c1be8ff9f10a7342d7ea242}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the ACM (JACM)}
-      \field{number}{2}
-      \field{title}{Unreliable failure detectors for reliable distributed systems}
-      \field{volume}{43}
-      \field{year}{1996}
-      \field{pages}{225\bibrangedash 267}
-      \range{pages}{43}
-    \endentry
-    \entry{blockchain_consensus}{article}{}
+    \entry{blockchain_consensus}{article}{}{}
       \name{author}{2}{}{%
         {{hash=42f529b7f497ff7acc1d2547f55bdb47}{%
            family={Zhang},
@@ -673,10 +740,12 @@
       }
       \strng{namehash}{f620488228c3eacf39186035fa1461b7}
       \strng{fullhash}{f620488228c3eacf39186035fa1461b7}
+      \strng{fullhashraw}{f620488228c3eacf39186035fa1461b7}
       \strng{bibnamehash}{f620488228c3eacf39186035fa1461b7}
       \strng{authorbibnamehash}{f620488228c3eacf39186035fa1461b7}
       \strng{authornamehash}{f620488228c3eacf39186035fa1461b7}
       \strng{authorfullhash}{f620488228c3eacf39186035fa1461b7}
+      \strng{authorfullhashraw}{f620488228c3eacf39186035fa1461b7}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -701,105 +770,7 @@
       \endverb
       \keyw{Blockchains,Consensus protocols,Cryptocurrencies}
     \endentry
-    \entry{babel}{misc}{}
-      \name{author}{4}{}{%
-        {{hash=6298c9a3be3a2f188263cc0e4725d63e}{%
-           family={Fouto},
-           familyi={F\bibinitperiod},
-           given={Pedro},
-           giveni={P\bibinitperiod}}}%
-        {{hash=97cc13fd0fc6bb09b67bac798dfc5a04}{%
-           family={Costa},
-           familyi={C\bibinitperiod},
-           given={Pedro\bibnamedelima Ákos},
-           giveni={P\bibinitperiod\bibinitdelim Á\bibinitperiod}}}%
-        {{hash=01eb907fe4f9429b911ea87887f73363}{%
-           family={Preguiça},
-           familyi={P\bibinitperiod},
-           given={Nuno},
-           giveni={N\bibinitperiod}}}%
-        {{hash=d671f26f95ae952ec0e9b83750ec18aa}{%
-           family={Leitão},
-           familyi={L\bibinitperiod},
-           given={João},
-           giveni={J\bibinitperiod}}}%
-      }
-      \strng{namehash}{3e818da08a41bba89034500ead9639b7}
-      \strng{fullhash}{be57ec5db4713b557e6d6b09298f6ad3}
-      \strng{bibnamehash}{3e818da08a41bba89034500ead9639b7}
-      \strng{authorbibnamehash}{3e818da08a41bba89034500ead9639b7}
-      \strng{authornamehash}{3e818da08a41bba89034500ead9639b7}
-      \strng{authorfullhash}{be57ec5db4713b557e6d6b09298f6ad3}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{cs.DC}
-      \field{eprinttype}{arXiv}
-      \field{title}{Babel: A Framework for Developing Performant and Dependable Distributed Protocols}
-      \field{year}{2022}
-      \verb{eprint}
-      \verb 2205.02106
-      \endverb
-    \endentry
-    \entry{networkx}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=94707ad079516150870c2f9a2932df46}{%
-           family={Hagberg},
-           familyi={H\bibinitperiod},
-           given={Aric\bibnamedelima A.},
-           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=12f80aa3aca50b90f024775e52dde170}{%
-           family={Schult},
-           familyi={S\bibinitperiod},
-           given={Daniel\bibnamedelima A.},
-           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
-        {{hash=58fb3a96810da0d56606677a3ce7e677}{%
-           family={Swart},
-           familyi={S\bibinitperiod},
-           given={Pieter\bibnamedelima J.},
-           giveni={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \name{editor}{3}{}{%
-        {{hash=cfa3239dded54488f9a82a5718d5b927}{%
-           family={Varoquaux},
-           familyi={V\bibinitperiod},
-           given={Gaël},
-           giveni={G\bibinitperiod}}}%
-        {{hash=5d98f8482048dcc3052b092b91de894c}{%
-           family={Vaught},
-           familyi={V\bibinitperiod},
-           given={Travis},
-           giveni={T\bibinitperiod}}}%
-        {{hash=eca9aeefdc8563b0e153fbedf08bc1a1}{%
-           family={Millman},
-           familyi={M\bibinitperiod},
-           given={Jarrod},
-           giveni={J\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Pasadena, CA USA}%
-      }
-      \strng{namehash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{fullhash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{bibnamehash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{authorbibnamehash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{authornamehash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{authorfullhash}{3a1b2e51fcffd45628935c7b6334f944}
-      \strng{editorbibnamehash}{5c6f569244b62f16c51830f1dac15458}
-      \strng{editornamehash}{5c6f569244b62f16c51830f1dac15458}
-      \strng{editorfullhash}{5c6f569244b62f16c51830f1dac15458}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 7th Python in Science Conference}
-      \field{title}{Exploring Network Structure, Dynamics, and Function using NetworkX}
-      \field{year}{2008}
-      \field{pages}{11\bibrangedash 15}
-      \range{pages}{5}
-    \endentry
-    \entry{vibes}{inproceedings}{}
+    \entry{vibes}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=a1f6a3004bcfb7a0e89ccc747045c1ba}{%
            family={Stoykov},
@@ -819,10 +790,12 @@
       }
       \strng{namehash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{fullhash}{5ac053a56977254f8e545f76ab97dec2}
+      \strng{fullhashraw}{5ac053a56977254f8e545f76ab97dec2}
       \strng{bibnamehash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{authorbibnamehash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{authornamehash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{authorfullhash}{5ac053a56977254f8e545f76ab97dec2}
+      \strng{authorfullhashraw}{5ac053a56977254f8e545f76ab97dec2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -833,7 +806,7 @@
       \field{pages}{19\bibrangedash 20}
       \range{pages}{2}
     \endentry
-    \entry{blocksim1}{inproceedings}{}
+    \entry{blocksim1}{inproceedings}{}{}
       \name{author}{2}{}{%
         {{hash=7202002fb39565af2f99107905419dda}{%
            family={Faria},
@@ -851,10 +824,12 @@
       }
       \strng{namehash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{fullhash}{d3b3b6d65863b2fa415ba430a284b247}
+      \strng{fullhashraw}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{bibnamehash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{authorbibnamehash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{authornamehash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{authorfullhash}{d3b3b6d65863b2fa415ba430a284b247}
+      \strng{authorfullhashraw}{d3b3b6d65863b2fa415ba430a284b247}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -865,7 +840,7 @@
       \field{pages}{439\bibrangedash 446}
       \range{pages}{8}
     \endentry
-    \entry{jabs}{article}{}
+    \entry{jabs}{article}{}{}
       \name{author}{3}{}{%
         {{hash=891f477534e715438bc0081b34eb96e9}{%
            family={Yajam},
@@ -888,10 +863,12 @@
       }
       \strng{namehash}{b134f435a00889be72c6057a54946476}
       \strng{fullhash}{b134f435a00889be72c6057a54946476}
+      \strng{fullhashraw}{b134f435a00889be72c6057a54946476}
       \strng{bibnamehash}{b134f435a00889be72c6057a54946476}
       \strng{authorbibnamehash}{b134f435a00889be72c6057a54946476}
       \strng{authornamehash}{b134f435a00889be72c6057a54946476}
       \strng{authorfullhash}{b134f435a00889be72c6057a54946476}
+      \strng{authorfullhashraw}{b134f435a00889be72c6057a54946476}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -900,7 +877,7 @@
       \field{title}{JABS: A Blockchain Simulator for Researching Consensus Algorithms}
       \field{year}{2023}
     \endentry
-    \entry{blocksim2}{article}{}
+    \entry{blocksim2}{article}{}{}
       \name{author}{2}{}{%
         {{hash=20933e84f61f0ee78ee4e36cc71eb6c0}{%
            family={Alharby},
@@ -920,10 +897,12 @@
       }
       \strng{namehash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{fullhash}{3c8098c61030b9ea4e6bd678d2e76666}
+      \strng{fullhashraw}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{bibnamehash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{authorbibnamehash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{authornamehash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{authorfullhash}{3c8098c61030b9ea4e6bd678d2e76666}
+      \strng{authorfullhashraw}{3c8098c61030b9ea4e6bd678d2e76666}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -935,7 +914,7 @@
       \field{pages}{28}
       \range{pages}{1}
     \endentry
-    \entry{simblock}{inproceedings}{}
+    \entry{simblock}{inproceedings}{}{}
       \name{author}{5}{}{%
         {{hash=93f5b71a24aaf39e1031288e4ea681c2}{%
            family={Aoki},
@@ -968,10 +947,12 @@
       }
       \strng{namehash}{4f35dee1b5cb1f4ab8baeddf11256bbc}
       \strng{fullhash}{7a6dc50c224835e84858af5feb22d879}
+      \strng{fullhashraw}{7a6dc50c224835e84858af5feb22d879}
       \strng{bibnamehash}{4f35dee1b5cb1f4ab8baeddf11256bbc}
       \strng{authorbibnamehash}{4f35dee1b5cb1f4ab8baeddf11256bbc}
       \strng{authornamehash}{4f35dee1b5cb1f4ab8baeddf11256bbc}
       \strng{authorfullhash}{7a6dc50c224835e84858af5feb22d879}
+      \strng{authorfullhashraw}{7a6dc50c224835e84858af5feb22d879}
       \field{sortinit}{3}
       \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
@@ -986,8 +967,8 @@
 \endrefsection
 
 \refsection{1}
-  \datalist[entry]{none/global//global/global}
-    \entry{novathesis-manual}{manual}{}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{novathesis-manual}{manual}{}{}
       \name{author}{1}{}{%
         {{hash=419e7851ce9e726652864635d63207af}{%
            family={Lourenço},
@@ -1000,10 +981,12 @@
       }
       \strng{namehash}{419e7851ce9e726652864635d63207af}
       \strng{fullhash}{419e7851ce9e726652864635d63207af}
+      \strng{fullhashraw}{419e7851ce9e726652864635d63207af}
       \strng{bibnamehash}{419e7851ce9e726652864635d63207af}
       \strng{authorbibnamehash}{419e7851ce9e726652864635d63207af}
       \strng{authornamehash}{419e7851ce9e726652864635d63207af}
       \strng{authorfullhash}{419e7851ce9e726652864635d63207af}
+      \strng{authorfullhashraw}{419e7851ce9e726652864635d63207af}
       \field{sortinit}{1}
       \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
