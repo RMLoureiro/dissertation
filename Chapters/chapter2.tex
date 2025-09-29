@@ -77,19 +77,22 @@ scenarios.
 
 Consistent Hashing and Random Trees, or Chord~\cite{chord} is a Distributed Hash
 Table based algorithm where each node is assigned a unique identifier based on
-the output of a hash function. Usually this has is based on the IP address of
+the output of a cryptographic hash function like SHA-1 or MD-5. Usually this hash is based on the IP address of
 the node since this is unique for every node of the network, and making it so
 that once a node joins the network their identifier is set in stone. These
-identifiers are also so that each node knows which keys of the distributed hash
-table are assigned to them, since the range of keys that belong to a certain
-node is represented by the range defined by their identifier up to the
-identifier of the next node.
+identifiers determine key assignment in the distributed hash table: each node is responsible
+for all keys in the range from its predecessor's identifier (exclusive) to its own identifier (inclusive).
+More formally, a node with identifier \textit{n} is responsible for keys in the range \textit{]predecessor(n), n]}.
+This ensures that every possible key in the identifier space is assigned to exactly one node,
+with keys hashed using the same hash function used for node identifiers.
 
 The graph generated based on the membership overlay will be a cyclic graph with
-a ring shape, with the nodes ordered by their generated identifier. Each node
-also maintains a routing table with around O(log \textit{n}) distinct entries
-called a finger table. This routing table is used in order to navigate the overlay
-in a more efficient manner.
+a ring shape, with the nodes ordered by their generated identifier and each node maintains a direct link
+to their predecessor and successor. Each node
+also maintains a routing table with around O(\textit{log n}) distinct entries
+called a finger table. Using this routing table we can improve the lookups from O(\textit{n}) to O(\textit{log n})
+since we can search in our finger table for the node with the closest preceding identifier instead of
+navigating the ring node by node.
 
 The tables maintained by these nodes are automatically updated when a new node joins
 or leaves the system  making it always possible to find a node responsible to a given
@@ -110,19 +113,33 @@ that the hash function that gives the node's identifier generated a uniform
 distribution of identifiers around the 128-bit space.
 
 Each Pastry node maintains a \textit{routing table}, a \textit{neighbourhood set}
-and a \textit{leafing set}. The routing table contains the entries based
-on substrings of the own node's identifier. The neighbourhood set contains
-the node identifiers and the corresponding IP address of the \textit{M} the closest
-nodes to the local node, \textit{M} being parametrizable.  The neighbourhood
-set contains the nodes that are used to maintain local properties. The leafing
-set contains the \textit{L}/2 closest large node identifiers and \textit{L}/2
-smallest node identifiers, \textit{L} also being a parametrized value. The
-leaf set is used in message routing.
+and a \textit{leafing set}. The routing table is organized in levels, where each level
+\textit{l} contains entries for nodes that share an \textit{l}-digit prefix with the local
+node's identifier, typically using base-$2^b$ encoding (commonly b=4), the routing
+table has up to $2^b$ entries per level, allowing efficient prefix-based routing.
 
-Pastry makes use these tables in the following fashion: when a message is received
-for another node in the network we check the leaf set, if the node is in range of
-the leaf set we route directly to the destination node, otherwise we check
-the routing table for a node that shares a common prefix with the key.
+The neighbourhood set contains the \textit{M} nodes that are closest to the local node in
+terms of network proximity (measured by latency or network distance), not identifier space proximity.
+
+The leaf set contains the \textit{L}/2 numerically closest nodes with smaller identifiers and \textit{L}/2
+numerically closest nodes with larger identifiers in the circular identifier space.
+
+When a new node joins, it contacts an existing nearby node and obtains initial routing state by querying
+nodes along the path to its final position and updates routing tables, leaf sets,
+and neighbourhood sets of affected nodes. 
+
+Pastry runs periodic maintenance protocols to ensure routing correctness. Nodes periodically exchange
+keepalive messages with their leaf set and neighbourhood set members, update routing table entries by probing
+nodes with longer common prefixes, and repair any detected inconsistencies in their routing state when there are changes
+in the memberhsip.
+
+Pastry uses a three-step routing algorithm: (1) if the destination is within the leaf set range,
+route directly to the destination or the numerically closest node; (2) if not, forward to a node from
+the routing table that shares a longer common prefix with the destination; (3) if no such node exists,
+forward to a node from the leaf set or neighbourhood set that is numerically closer to the destination.
+With this algorithm Pastry achieves O(\textit{log N}) expected routing hops for message delivery and maintains
+O(\textit{log N}) routing state per node, making it highly scalable for large networks.
+
 
 \subsection{Unstructured Overlays}\label{sub:unstructured_overlays}
 
@@ -143,15 +160,18 @@ Unlike traditional gossip based overlays that rely on a heartbeat strategy,
 the failure detector in SWIM is independent of the rest of the protocol.
 The failure detector is fully decentralized and is executed in a randomized
 probe-based fashion, the authors later suggest an optimization via a round-robin
-fashion instead. Every \textit{t} seconds, parametrizable value, a random
-node that belongs to the membership is checked to see if it's still alive, if
-no awnser is received the request is forwarded to \textit{k} other members to
-execute an indirect probe. If the nodes responds to at least one of the indirect
-requests the suspicion is removed and an \textit{alive} message is spread to
-fasten the process in case other nodes suspect from it.  This mechanism reduces The
-number of false positives in failure detection, which can usually be due to a
-temporary unavailability from a network partition or from a slow-down of a node
-due to a high load of requests. As a drawback failure detection is slower.
+fashion instead.
+
+SWIM uses a three-state model for nodes: alive, suspect, and failed. When a direct probe fails,
+the target node enters the suspect state rather than being immediately marked as failed.
+During the suspicion period, other nodes can refute the suspicion by providing evidence
+that the suspected node is actually alive. This mechanism significantly reduces false positives
+while maintaining rapid failure detection.
+
+SWIM uses incarnation numbers to handle false suspicions: each node maintains an incarnation
+number that it can increment to refute suspicions about itself. The protocol uses specific
+message types including \textit{PING} (direct probe), \textit{PING-REQ} (indirect probe request), \textit{ACK} (acknowledgment),
+and membership update messages that carry node states and incarnation numbers.
 
 The other component of this protocol is the gossip dissemination system which
 maintains a partial view of the network. This component updates whenever a member
@@ -159,13 +179,21 @@ joins or leaves the system by an infection style dissemination protocol. In orde
 make this more efficient, the updates piggyback the messages that are sent during the
 failure detection procedure.
 
+SWIM achieves excellent scalability properties: failure detection time is O(\textit{1}) with respect to group size,
+and each node generates a constant message load per time period regardless of the total number of nodes.
+The protocol provides eventual consistency of membership views across all nodes, with new nodes joining
+by contacting any existing member and receiving the current membership list. The weak consistency model
+ensures that all correct nodes eventually converge to the same membership view, though temporary
+inconsistencies may exist during periods of high churn.
+
 \subsubsection{HyParView}\label{subsec:hyparview}
 
 HyParView~\cite{hyparview} is a gossip based membership protocol that offers high
 resilience and high delivery reliability of messages while being highly scalable.
-It relies on a hybrid approach by maintaining, besides the active view that is 
-used by the nodes to maintain the communication overlay, a passive view, in case
-the networks needs to be restructured.
+It relies on a hybrid approach by maintaining two distinct views: an \textit{active view}
+used for reliable message dissemination, and a \textit{passive view},
+usually 3 to 5 times larger than the active view,
+that serves as a backup for network restructuring when the active view changes.
 
 HyParView uses different approaches when it comes to maintaining each of the views,
 for active view a reactive strategy is used, nodes react to events that require 
@@ -179,18 +207,18 @@ active view may be demoted to the passive view. All the nodes in the active
 view of a given node have that node in their active view, making the connection
 graph that represents the overlay be a bidirectional graph.
 
-For the passive view, HyParView uses a cyclic strategy by periodically exchanging
-information with other nodes regarding the contents of its views. This information
-is exchanged by means of a shuffle operation with another node from its active view.
-After the exchange, the nodes integrate the new received members in its
-passive views, even if for that, some older members have to be dropped. This
-mechanism helps to maintain a homogeneous overlay in the number of connections
-each node has.
+For the passive view, HyParView uses a cyclic strategy with periodic shuffle operations
+every \textit{t} seconds (typically 10-30). During a shuffle, a node exchanges
+a subset of its passive view with a randomly selected active neighbor.
+The neighbour responds with its own partial passive view. Both nodes
+integrate received entries while maintaining view size limits through age-based eviction.
+This mechanism ensures O(\textit{log N}) mixing time for achieving uniform random sampling
+across the network and maintains connectivity with high probability.
 
-The gossip strategy relies on the use of TCP as a reliable transport protocol and fail
-detector. Since all members are tested at each step of the gossip protocol, failed nodes
-do not stay unnoticed for long. This way, HyParView provides with fast self-healing
-properties that are characteristic of gossip protocols.
+The protocol uses TCP connection failures as an implicit failure detector: when a TCP
+connection to an active neighbor fails, the node immediately replaces it by promoting
+a node from the passive view to maintain the target active view size, providing
+excellent fault tolerance properties and avoiding partitions even under high churn rates.
 
 Tests done in \cite{hyparview} show that the algorithm is able to recover from as much as 80\%
 node failure, as long as the overlay stays connected. By being able quickly react to failures
@@ -254,70 +282,69 @@ view that is going to be upgraded to its active view. And finally node \textit{d
 is the node to be removed from the candidate's view so that \textit{i} can be accepted.
 These nodes are always selected based upon the link cost values provided by the oracle,
 ensuring that every time the optimization procedure is called the network increases its
-efficiency
-
-\subsubsection{Final takes}\label{subsec:final_takes_membership}
-
-After analysis of the presented protocols we suggest the implementation of Chord,
-HyParView and X-BOT. We chose these protocols due to their ease of implementation,
-wide difference in properties and popularity of usage in real-world. We believe that
-these protocols will allow us to provide developers with different scenarios that
-can closely simulate real world conditions in order to provide more qualitative data
-specially when considering non-perfect conditions in the network.
+efficiency.
 
 \section{Consensus Protocols}\label{sec:consensus}
 
-Consensus protocols address the challenge of participants within a system reaching 
-an agreement on a specific value.
-These algorithms must ensure an agreement is reached
-even in the presence of faulty nodes in the network. Consensus protocols must ensure
-they satisfy the following properties~\cite{distributed_systems_concepts}:
+Consensus protocols address the fundamental challenge of enabling distributed participants 
+to reach agreement on a specific value, this is essential for building reliable distributed 
+systems such as replicated databases, distributed file systems, and blockchain networks.
+These algorithms must ensure agreement is reached even in the presence of faulty nodes, 
+network partitions, and asynchronous communication delays.
+
+Any consensus protocol must satisfy the following four fundamental properties~\cite{distributed_systems_concepts}:
 \begin{itemize}
   \item \textbf{Termination:} Eventually, every correct process decides some value.
-  \item \textbf{Validity:} If all the correct processes propose the same value,
-then any correct process must agree on that value.
-  \item \textbf{Integrity:} No process decides more than one value
-  \item \textbf{Agreement:} Every correct process must agree on the same value.
+  \item \textbf{Agreement:} If all correct processes propose the same value \textit{v}, 
+then any correct process that decides a value must decide \textit{v}.
+  \item \textbf{Integrity:} No correct process decides more than once.
 \end{itemize}
 
-We will now look at some protocols that solve consensus.
+Consensus protocols differ in their assumptions about the system model, including synchrony,
+failure types (crash-fault vs. byzantine-faults), and the number of faults
+tolerated. The famous FLP impossibility result shows that deterministic consensus is 
+impossible in asynchronous systems with even one crash failure, making practical protocols
+rely on additional assumptions like partial synchrony or randomization.
+
+We will now examine specific protocols that solve consensus under different system models.
 
 \subsection{Chandra-Toueg}\label{sub:chandra-toueg}
 
-The Chandra-Toueg consensus protocol~\cite{chandra} for solving consensus in a network of
-unreliable processes equipped with an eventually strong failure detector.
-This failure detector is an abstract version of timeout signalling that each
-process preforms when other processes may have crashed.
-An eventually strong failure detector is defined with the two following properties:
+The Chandra-Toueg consensus protocol~\cite{chandra} solves consensus in partially synchronous
+systems using an eventually strong failure detector.
+This failure detector abstracts the timing assumptions needed for consensus, providing
+an oracle that can make mistakes about process failures but eventually becomes reliable.
+An eventually strong failure detector is defined by the following two properties:
 \begin{itemize}
-  \item Eventually every process that crashes is permanently suspected by every
-correct process.
-  \item There is a time after which correct processes are not suspected by analysis
-correct process, meaning that if they become suspects a one point but do not crash,
-the other correct processes will stop suspecting them eventually.
+  \item \textbf{Strong Completeness:} Eventually, every process that crashes is permanently
+  suspected by every correct process.
+  \item \textbf{Eventual Strong Accuracy:} There is a time after which no correct process
+  is suspected by any correct process (i.e., eventually the failure detector stops making
+  false accusations about correct processes).
 \end{itemize}
 
-The algorithm assumes that the number of faulty processes is always less than half
-of the number of total nodes in the system. It operates in rounds using a rotating
-coordinator and each round the logic is as follows:
+The algorithm operates in the crash-fault fail model, it assumes that fewer than half of the
+processes can fail \textit{(f < n/2)} and guarantees termination in O(\textit{f+1})
+rounds, where \textit{f} is the number of process failures. The protocol proceeds
+in asynchronous rounds with a rotating coordinator selected in round-robin fashion. Each round consists of four phases:
 
 \begin{enumerate}
-  \item All processes send their preference to the coordinator.
-  \item The coordinator waits to receive messages from at least half of the processes,
-including itself and chooses the preference with most recent timestamp.
-  \item The coordinator sends the chosen preference to all nodes.
-  \item Each process waits to receive the chosen preference from the coordinator
-or wait for its failure detector to identify the coordinator as crashed.
+  \item \textbf{Phase 1:} All processes send their current estimate and timestamp to the coordinator.
+  \item \textbf{Phase 2:} The coordinator waits to receive messages from a majority of processes.
+  If successful, it selects the estimate with the highest timestamp and broadcasts this chosen
+  value to all processes. If the coordinator is suspected of failure, it proceeds to the next round.
+  \item \textbf{Phase 3:} Each process waits to receive the coordinator's proposal or for
+  its failure detector to suspect the coordinator as failed:
   \begin{itemize}
-    \item In the first case it sets its preference to be the same as the coordinator
-and replies with an ack (acknowledge).
-    \item In the second case it responds with a \textit{nack} (not acknowledge).
+    \item If the proposal is received, the process adopts it as its new estimate and sends
+    an \textit{ACK} to the coordinator.
+    \item If the coordinator is suspected as failed, the process sends a \textit{NACK} and proceeds
+    to the next round with a new coordinator.
   \end{itemize}
-  \item The coordinator waits to receive \textit{acks} from a majority of processes, after
-it sends a decide message to all processes.
-  \item Any processes that received the decide message for the first time it
-broadcasts it to all processes.
-  \item The processes decide on the coordinator chosen preference and terminates.
+  \item \textbf{Phase 4:} If the coordinator receives \textit{ACKs} from a majority of processes,
+  it broadcasts a \textit{DECIDE} message with the chosen value. Upon receiving a \textit{DECIDE}
+  message, processes decide on the value and terminate. The \textit{DECIDE} message is also
+  relayed to ensure all correct processes eventually decide.
 \end{enumerate}
 
 \subsection{Paxos}\label{sub:paxos}
@@ -389,35 +416,107 @@ by the same leader. We still need the phase 1 for the first round but in
 consequent rounds if the Leader does not change nor fails we can skip it, reducing
 the overhead for each round.
 
-\subsubsection{Final takes}\label{subsec:final_takes_consensus}
+\subsection{Practical Byzantine Fault Tolerance (pBFT)}\label{sub:pbft}
 
-After analysis of the presented protocols we believe that implementing both protocols
-will allow us to check their similarities and what data is important to provide
-to evaluate their execution. This should allow us to confirm if further work
-needs to be done to MOBS to provide the necessary information, and if we can also
-provide qualitative and consistent data to blockchain protocols in a way that is
-extensible to fit the protocols' and the developers' needs.
+Practical Byzantine Fault Tolerance (pBFT)~\cite{pbft} provides a solution for achieving
+consensus in partially synchronous networks supporting \textit{f} nodes with Byzantine behaviour
+in a network of \textit{3f+1} nodes. Unlike probabilistic consensus
+mechanisms, pBFT guarantees immediate finality and strong consistency, making
+it suitable for applications requiring deterministic transaction confirmation.
+
+The pBFT protocol operates through a three-phase process for each consensus round:
+\begin{enumerate}
+  \item \textbf{Pre-prepare:} The primary replica broadcasts a pre-prepare message
+  containing the proposed operation sequence number and client request.
+  \item \textbf{Prepare:} Upon receiving a valid pre-prepare message, backup replicas
+  broadcast prepare messages, indicating agreement with the proposed operation ordering.
+  \item \textbf{Commit:} Once a replica receives \textit{2f} prepare messages from different
+  replicas, it broadcasts a commit message and executes the operation after receiving
+  \textit{2f+1} commit messages.
+\end{enumerate}
+
+The protocol ensures safety through view changes when the primary is suspected
+of failure, and liveness through eventual synchrony assumptions. pBFT variants
+are widely used in permissioned blockchain networks such as Hyperledger Fabric~\cite{hyperledger_fabric}
+and various consortium blockchain implementations, where the set of validators
+is known, and network communication is more reliable than in public networks.
+
+While pBFT provides strong consistency guarantees, its O($n^2$) message complexity
+limits scalability to networks within hundreds rather than thousands of participants,
+making it more suitable for a smaller number of participants like in 
+consortium and private blockchain deployments.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{pbft}
+	\caption{Flow of PBFT}
+	\label{fig:pbft}
+\end{figure}
 
 \section{Blockchain Protocols}\label{sec:blockchain}
 
-Blockchain is the core technology of many cryptocurrencies as a distributed
-ledger technology. This technology combines cryptography, distributed system
-technology, peer-to-peer networking and many more. Different blockchain
-protocols use different consensus protocols to try and balance the trade-offs of
-each, and make sure we use the suitable consensus protocol for the blockchain type
-used by the system. The adopted consensus protocol needs to fit the demands of
-different application scenarios. In this section we will detail some popular
-blockchain consensus protocols that effectively address Byzantine behaviour
-in the system, taking basis in the work done in~\cite{blockchain_consensus}:
+Blockchain protocols are the set of rules that govern how data is secured, recorded and shared
+with a blockchain network, usually a distributed ledger that maintains a continuously
+growing list of records (blocks) linked and secured using cryptographic hashes. These blocks
+are linked in a chain that is immutable and tamper-evident, making it suitable for applications
+that require trustless consensus among distributed participants.
 
-(TODO passar textbf a subsecoes mais detalhadas)
-\textbf{PoW (Proof of Work):} PoW is adopted by Bitcoin and Ethereum,
-this consensus protocol selects one node to create a new block 
-each round of consensus by using a computational power competition. In this
-competition node nodes need to solve a cryptographic puzzle, the first node to solve
-this puzzle has the right to create a new block. Nodes need to constantly adjust the
-value of nonce in order to get the correct answer, which requires an enormous amount
-of computational power. PoW guarantees eventual consistency.
+Blockchain protocols are usually designed with the goal to achieve four key properties:
+\begin{itemize}
+  \item \textbf{Decentralization:} No single point of control or failure, data is replicated across multiple nodes.
+  \item \textbf{Immutability:} Historical records cannot be altered due to cryptographic linking.
+  \item \textbf{Transparency:} All transactions are visible to all network participants
+  \item \textbf{Consensus:} All nodes maintain consistent state despite potential Byzantine faults.
+\end{itemize}
+
+Blockchain systems can be categorized into three main types based on access control and
+governance models~\cite{blockchain_consensus}:
+
+\begin{itemize}
+  \item \textbf{Public Blockchains (Permissionless):} Open to all participants without restrictions.
+  Anyone can join the network, validate transactions, and participate in consensus. Examples include
+  Bitcoin, Ethereum, and Litecoin. These systems prioritize decentralization and censorship resistance
+  but often sacrifice performance and energy efficiency.
+  
+  \item \textbf{Private Blockchains (Permissioned):} Controlled access restricted to specific
+  organizations or entities. Only authorized participants can join, validate, or access data.
+  Examples include enterprise solutions like Hyperledger Fabric deployments within corporations
+  and central bank digital currencies (CBDCs). These offer higher performance and privacy
+  but reduce decentralization benefits.
+  
+  \item \textbf{Consortium Blockchains (Semi-decentralized):} Controlled by a pre-selected group
+  of participants, typically industry partners or allied organizations. Examples include
+  R3's Corda for financial institutions, IBM Food Trust for supply chain management,
+  and Energy Web Chain for the energy sector. These balance decentralization with performance
+  and regulatory compliance.
+\end{itemize}
+
+Each type presents distinct trade-offs between decentralization, performance, governance,
+and trust assumptions, fundamentally influencing the choice of consensus mechanism and
+system architecture.
+
+In this section, we examine popular blockchain consensus protocols that address Byzantine
+behavior under different system models and trust assumptions.
+
+\subsection{Proof of Work (PoW)}\label{sub:pow}
+
+Proof of Work, adopted by Bitcoin~\cite{bitcoin} and Ethereum~\cite{ethereum} (pre-2022),
+represents the first successful solution of a blockchain protocol.
+This consensus mechanism selects the next block producer through a computational
+competition where nodes (miners) compete to solve a cryptographic puzzle with
+adjustable difficulty.
+
+The PoW algorithm operates as follows: miners collect pending transactions into a block
+candidate, then iteratively modify a nonce value while computing the block's hash
+using a cryptographic function (typically double SHA-256). The objective is to find
+a hash that meets the current difficulty target that automatically adjusts to
+maintain average block times (e.g., 10 minutes for Bitcoin).
+
+PoW provides several security guarantees: it ensures eventual consistency through
+the longest chain rule, requires attackers to control more than 50\% of the network's
+computational power for successful attacks, and creates an economic incentive structure
+through block rewards and transaction fees. However, this comes at the cost of
+significant energy consumption and limited transaction throughput.
 
 \begin{figure}[h]
 	\centering
@@ -426,12 +525,30 @@ of computational power. PoW guarantees eventual consistency.
 	\label{fig:pow}
 \end{figure}
 
-\textbf{PoS (Proof of Stake):} In PoS, selecting which node creates a new block
-depends on the held take rather than the computational power. Node till need to solve
-a SHA256 puzzle, but the nonce does not need to be adjusted, instead the key to solve
-the puzzle is the amount of stake. Nxt and Ouroboros adopt PoS and Ethereum plans to
-transition from PoW to PoS. This consensus protocol guarantees like
-PoW eventual consistency. 
+\subsection{Proof of Stake (PoS)}\label{sub:pos}
+
+Proof of Stake replaces computational competition with economic stake as the basis
+for consensus participation and block production rights. In PoS protocols, validators
+are selected to create new blocks based on their stake rather than their
+computational power, significantly reducing energy consumption compared to Proof of Work protocols.
+
+The selection mechanism typically employs randomization weighted by stake size where
+validators with larger stakes have proportionally higher chances of being selected
+to produce the next block. Modern PoS implementations like Ouroboros~\cite{ouroboros},
+Ethereum 2.0's Gasper~\cite{gasper}, and Tendermint~\cite{tendermint} use selection algorithms
+that provide cryptographic proofs of randomness and prevent manipulation.
+
+PoS systems enforce honest behavior through economic penalties: validators must
+deposit stake as collateral, which can be partially or fully confiscated
+for provable misbehavior such as double-signing or violating protocol rules.
+This creates strong economic incentives for honest participation while enabling
+faster finality and higher transaction throughput than PoW systems.
+
+Ethereum successfully transitioned from PoW to PoS in 2022, demonstrating the
+practical viability of this approach for large-scale blockchain networks. 
+
+Ethereum's transition to PoS although successful has opened the protocols up to vulnerabilities,
+one of which will be further discussed in Section~\ref{sub:bouncing_attack}.
 
 \begin{figure}[h]
 	\centering
@@ -441,26 +558,31 @@ PoW eventual consistency.
 \end{figure}
 
 
-\textbf{DPoS (Delegated Proof of Stake):} The principle here is to let nodes who
-hold stake to vote to elect block creators, this way delegating the job of creating
-the blocks and reducing computational consumption. This is adopted by BitShares and EOS.
+\subsection{Delegated Proof of Stake (DPoS)}\label{sub:dpos}
+
+Delegated Proof of Stake introduces a representative democracy model where token
+holders vote to elect a limited set of delegates responsible for block production and network governance.
+
+In DPoS systems, token holders continuously vote for delegates using their stake
+as voting power. The top-voted delegates form a rotating committee that takes
+turns producing blocks in a round-robin fashion, producing deterministic
+block times and higher transaction throughput compared to probabilistic consensus
+mechanisms like PoW or traditional PoS.
+
+DPoS implementations include EOSIO~\cite{dpos_eosio}, Tron~\cite{dpos_tron}, and the BitShares~\cite{bitshares}.
+These protocols offer several advantages: faster block confirmation times, typically one to three seconds,
+higher transaction throughput, and lower energy consumption. However, this comes
+at the cost of increased centralization, as only a few delegates
+control block production, potentially making the system more susceptible to
+collusion and censorship attacks.
+
+Delegate accountability is maintained through continuous voting: poorly performing
+or malicious delegates can be voted out by token holders, creating ongoing
+incentives for honest behavior and competent network operation.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{dpos}
 	\caption{Flow of DPoS}
 	\label{fig:dpos}
-\end{figure}
-
-\textbf{PBFT (Practical Byzantine Fault Tolerance):} PBFT is a Byzantine Fault 
-Tolerance protocol with low algorithmic complexity, it contains five phases: request,
-pre-prepare, prepare, commit and reply. PBFT guarantees nodes maintain a common state and take
-a consistent action in each round, guarantees strong consistency and is adopted by
-EOS to validate blocks while using DPoS for creation.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=4.5in, angle =0]{pbft}
-	\caption{Flow of PBFT}
-	\label{fig:pbft}
 \end{figure}

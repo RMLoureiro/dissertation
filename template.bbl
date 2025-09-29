@@ -725,6 +725,56 @@
       \field{year}{2005}
       \keyw{addison-wesley books coulouris distributed}
     \endentry
+    \entry{hyperledger_fabric}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=d4bbf298428d98542a83c03897191765}{%
+           family={Sukhwani},
+           familyi={S\bibinitperiod},
+           given={Harish},
+           giveni={H\bibinitperiod}}}%
+        {{hash=37ecc35c5a22b040bcd5f174505493f9}{%
+           family={Martínez},
+           familyi={M\bibinitperiod},
+           given={José\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a2095194fb3b6da008b296abd25453f5}{%
+           family={Chang},
+           familyi={C\bibinitperiod},
+           given={Xiaolin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=843761054f990f7444cd8196b3e80a84}{%
+           family={Trivedi},
+           familyi={T\bibinitperiod},
+           given={Kishor\bibnamedelima S.},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=6bf106a65ea5ffc6aead533b3f3d5014}{%
+           family={Rindos},
+           familyi={R\bibinitperiod},
+           given={Andy},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{cdc76bbcb87b882f0e3c6ad0ec5f8157}
+      \strng{fullhash}{9227b0993c011b7f6bc4be4ccf00addc}
+      \strng{fullhashraw}{9227b0993c011b7f6bc4be4ccf00addc}
+      \strng{bibnamehash}{cdc76bbcb87b882f0e3c6ad0ec5f8157}
+      \strng{authorbibnamehash}{cdc76bbcb87b882f0e3c6ad0ec5f8157}
+      \strng{authornamehash}{cdc76bbcb87b882f0e3c6ad0ec5f8157}
+      \strng{authorfullhash}{9227b0993c011b7f6bc4be4ccf00addc}
+      \strng{authorfullhashraw}{9227b0993c011b7f6bc4be4ccf00addc}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2017 IEEE 36th Symposium on Reliable Distributed Systems (SRDS)}
+      \field{title}{Performance Modeling of PBFT Consensus Process for Permissioned Blockchain Network (Hyperledger Fabric)}
+      \field{year}{2017}
+      \field{pages}{253\bibrangedash 255}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/SRDS.2017.36
+      \endverb
+      \keyw{Computational modeling;Fabrics;Bitcoin;Protocols;Stochastic processes;Fault tolerance;blockchain;hyperledger fabric;PBFT;performance modeling;Stochastic Reward Nets}
+    \endentry
     \entry{blockchain_consensus}{article}{}{}
       \name{author}{2}{}{%
         {{hash=42f529b7f497ff7acc1d2547f55bdb47}{%
@@ -770,6 +820,251 @@
       \endverb
       \keyw{Blockchains,Consensus protocols,Cryptocurrencies}
     \endentry
+    \entry{bitcoin}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=1977190f018b398e43ede3de043de8ea}{%
+           family={Nakamoto},
+           familyi={N\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhashraw}{1977190f018b398e43ede3de043de8ea}
+      \strng{bibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorbibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authornamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhashraw}{1977190f018b398e43ede3de043de8ea}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.}
+      \field{month}{5}
+      \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb http://www.bitcoin.org/bitcoin.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.bitcoin.org/bitcoin.pdf
+      \endverb
+      \keyw{itsecseminar}
+    \endentry
+    \entry{ouroboros}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=0278b128c4bcfa5678e12281560d8fe5}{%
+           family={Badertscher},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6baae3826e59da37ab3420bc4884a209}{%
+           family={Gaži},
+           familyi={G\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a788bdbaf3b805cdc29e079c1e4ae908}{%
+           family={Kiayias},
+           familyi={K\bibinitperiod},
+           given={Aggelos},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ddc77d8d5bf45f3970bd288d4e710e54}{%
+           family={Russell},
+           familyi={R\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9c96d6f436c5dcbeb3bef1af3138383a}{%
+           family={Zikas},
+           familyi={Z\bibinitperiod},
+           given={Vassilis},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Toronto, Canada}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{5d584e4bfd89c5d470423fab30c5f3d4}
+      \strng{fullhash}{61567b891bbb5cfd464175281d9f9fda}
+      \strng{fullhashraw}{61567b891bbb5cfd464175281d9f9fda}
+      \strng{bibnamehash}{5d584e4bfd89c5d470423fab30c5f3d4}
+      \strng{authorbibnamehash}{5d584e4bfd89c5d470423fab30c5f3d4}
+      \strng{authornamehash}{5d584e4bfd89c5d470423fab30c5f3d4}
+      \strng{authorfullhash}{61567b891bbb5cfd464175281d9f9fda}
+      \strng{authorfullhashraw}{61567b891bbb5cfd464175281d9f9fda}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a novel Proof-of-Stake (PoS) protocol, Ouroboros Genesis, that enables parties to safely join (or rejoin) the protocol execution using only the genesis block information. Prior to our work, PoS protocols either required parties to obtain a trusted "checkpoint" block upon joining and, furthermore, to be frequently online or required an accurate estimate of the number of online parties to be hardcoded into the protocol logic. This ability of new parties to "bootstrap from genesis" was a hallmark property of the Bitcoin blockchain and was considered an important advantage of PoW-based blockchains over PoS-based blockchains since it facilitates robust operation in a setting with dynamic availability, i.e., the natural setting---without external trusted objects such as checkpoint blocks---where parties come and go arbitrarily, may join at any moment, or remain offline for prolonged periods of time. We prove the security of Ouroboros Genesis against a fully adaptive adversary controlling less than half of the total stake in a partially synchronous network with unknown message delay and unknown, varying levels of party availability. Our security proof is in the Universally Composable setting assuming the most natural abstraction of a hash function, known as the strict Global Random Oracle (ACM-CCS 2014); this highlights an important advantage of PoS blockchains over their PoW counterparts in terms of composability with respect to the hash function formalisation: rather than a strict GRO, PoW-based protocol security requires a "local" random oracle. Finally, proving the security of our construction against an adaptive adversary requires a novel martingale technique that may be of independent interest in the analysis of blockchain protocols.}
+      \field{booktitle}{Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security}
+      \field{isbn}{9781450356930}
+      \field{series}{CCS '18}
+      \field{title}{Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic Availability}
+      \field{year}{2018}
+      \field{pages}{913\bibrangedash 930}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1145/3243734.3243848
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3243734.3243848
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3243734.3243848
+      \endverb
+      \keyw{blockchain,distributed ledgers,proof-of-stake}
+    \endentry
+    \entry{gasper}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=654332ae382442f154e18ebc54953364}{%
+           family={Pititto},
+           familyi={P\bibinitperiod},
+           given={Giulia},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Politecnico di Torino}%
+      }
+      \strng{namehash}{654332ae382442f154e18ebc54953364}
+      \strng{fullhash}{654332ae382442f154e18ebc54953364}
+      \strng{fullhashraw}{654332ae382442f154e18ebc54953364}
+      \strng{bibnamehash}{654332ae382442f154e18ebc54953364}
+      \strng{authorbibnamehash}{654332ae382442f154e18ebc54953364}
+      \strng{authornamehash}{654332ae382442f154e18ebc54953364}
+      \strng{authorfullhash}{654332ae382442f154e18ebc54953364}
+      \strng{authorfullhashraw}{654332ae382442f154e18ebc54953364}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The gasper protocol: A proof of stake era for ethereum}
+      \field{type}{phdthesis}
+      \field{year}{2022}
+    \endentry
+    \entry{tendermint}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=c30f8ee7746255fb967f73ce6b1f5821}{%
+           family={Kwon},
+           familyi={K\bibinitperiod},
+           given={Jae},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{fullhash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{fullhashraw}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{bibnamehash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{authorbibnamehash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{authornamehash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{authorfullhash}{c30f8ee7746255fb967f73ce6b1f5821}
+      \strng{authorfullhashraw}{c30f8ee7746255fb967f73ce6b1f5821}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Tendermint : Consensus without Mining}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:52061503
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:52061503
+      \endverb
+    \endentry
+    \entry{dpos_eosio}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=1a275a125aca4a74de3849a023671eba}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Greg},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{1a275a125aca4a74de3849a023671eba}
+      \strng{fullhash}{1a275a125aca4a74de3849a023671eba}
+      \strng{fullhashraw}{1a275a125aca4a74de3849a023671eba}
+      \strng{bibnamehash}{1a275a125aca4a74de3849a023671eba}
+      \strng{authorbibnamehash}{1a275a125aca4a74de3849a023671eba}
+      \strng{authornamehash}{1a275a125aca4a74de3849a023671eba}
+      \strng{authorfullhash}{1a275a125aca4a74de3849a023671eba}
+      \strng{authorfullhashraw}{1a275a125aca4a74de3849a023671eba}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{EOS.IO Technical White Paper v2}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://academy.bit2me.com/wp-content/uploads/2021/05/eos-whitepaper.pdf
+      \endverb
+      \verb{url}
+      \verb https://academy.bit2me.com/wp-content/uploads/2021/05/eos-whitepaper.pdf
+      \endverb
+    \endentry
+    \entry{dpos_tron}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=26ba58d6674ca378b0bd32e97f32121b}{%
+           family={Network},
+           familyi={N\bibinitperiod},
+           given={Tron},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{fullhash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{fullhashraw}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{bibnamehash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{authorbibnamehash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{authornamehash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{authorfullhash}{26ba58d6674ca378b0bd32e97f32121b}
+      \strng{authorfullhashraw}{26ba58d6674ca378b0bd32e97f32121b}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{TRON: Advanced Decentralized Blockchain Platform}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://tron.network/static/doc/white_paper_v_2_1.pdf
+      \endverb
+      \verb{url}
+      \verb https://tron.network/static/doc/white_paper_v_2_1.pdf
+      \endverb
+    \endentry
+    \entry{bitshares}{misc}{}{}
+      \name{author}{2}{}{%
+        {{hash=96bf9b2d578e4df47e062b9cff848589}{%
+           family={Dan\bibnamedelima Larimer},
+           familyi={D\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Stan\bibnamedelima Larimer},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=4d83bc323808a449cc1eb292a8bdf5eb}{%
+           family={Hoskinson},
+           familyi={H\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{fullhash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{fullhashraw}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{bibnamehash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{authorbibnamehash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{authornamehash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{authorfullhash}{6dae2dcf380175e57773aaa36f68a8b7}
+      \strng{authorfullhashraw}{6dae2dcf380175e57773aaa36f68a8b7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{BitShares 2.0: The Decentralized Exchange}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://github.com/bitshares/whitepaper
+      \endverb
+      \verb{url}
+      \verb https://github.com/bitshares/whitepaper
+      \endverb
+    \endentry
     \entry{vibes}{inproceedings}{}{}
       \name{author}{3}{}{%
         {{hash=a1f6a3004bcfb7a0e89ccc747045c1ba}{%
@@ -796,8 +1091,8 @@
       \strng{authornamehash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{authorfullhash}{5ac053a56977254f8e545f76ab97dec2}
       \strng{authorfullhashraw}{5ac053a56977254f8e545f76ab97dec2}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 18th ACM/IFIP/USENIX Middleware Conference: Posters and Demos}
@@ -830,8 +1125,8 @@
       \strng{authornamehash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{authorfullhash}{d3b3b6d65863b2fa415ba430a284b247}
       \strng{authorfullhashraw}{d3b3b6d65863b2fa415ba430a284b247}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2019 IEEE International Conference on Blockchain (Blockchain)}
@@ -869,8 +1164,8 @@
       \strng{authornamehash}{b134f435a00889be72c6057a54946476}
       \strng{authorfullhash}{b134f435a00889be72c6057a54946476}
       \strng{authorfullhashraw}{b134f435a00889be72c6057a54946476}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Transactions on Network Science and Engineering}
@@ -903,8 +1198,8 @@
       \strng{authornamehash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{authorfullhash}{3c8098c61030b9ea4e6bd678d2e76666}
       \strng{authorfullhashraw}{3c8098c61030b9ea4e6bd678d2e76666}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Frontiers in Blockchain}
@@ -953,8 +1248,8 @@
       \strng{authornamehash}{4f35dee1b5cb1f4ab8baeddf11256bbc}
       \strng{authorfullhash}{7a6dc50c224835e84858af5feb22d879}
       \strng{authorfullhashraw}{7a6dc50c224835e84858af5feb22d879}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{IEEE INFOCOM 2019-IEEE Conference on Computer Communications Workshops (INFOCOM WKSHPS)}

@@ -298,3 +298,82 @@ series = {ICDCN '24}
   pages={173--186},
   year={1999}
 }
+
+@article{bitcoin,
+  abstract = {A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.},
+  added-at = {2022-06-15T13:43:05.000+0200},
+  author = {Nakamoto, Satoshi},
+  biburl = {https://www.bibsonomy.org/bibtex/2974d35fdb27dea57296ed2245556aa18/daniel_grm9},
+  interhash = {423c2cdff70ba0cd0bca55ebb164d770},
+  intrahash = {974d35fdb27dea57296ed2245556aa18},
+  keywords = {itsecseminar},
+  month = may,
+  timestamp = {2022-06-15T13:43:05.000+0200},
+  title = {Bitcoin: A Peer-to-Peer Electronic Cash System},
+  url = {http://www.bitcoin.org/bitcoin.pdf},
+  year = 2009
+}
+
+@inproceedings{ouroboros,
+author = {Badertscher, Christian and Ga\v{z}i, Peter and Kiayias, Aggelos and Russell, Alexander and Zikas, Vassilis},
+title = {Ouroboros Genesis: Composable Proof-of-Stake Blockchains with Dynamic Availability},
+year = {2018},
+isbn = {9781450356930},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3243734.3243848},
+doi = {10.1145/3243734.3243848},
+abstract = {We present a novel Proof-of-Stake (PoS) protocol, Ouroboros Genesis, that enables parties to safely join (or rejoin) the protocol execution using only the genesis block information. Prior to our work, PoS protocols either required parties to obtain a trusted "checkpoint" block upon joining and, furthermore, to be frequently online or required an accurate estimate of the number of online parties to be hardcoded into the protocol logic. This ability of new parties to "bootstrap from genesis" was a hallmark property of the Bitcoin blockchain and was considered an important advantage of PoW-based blockchains over PoS-based blockchains since it facilitates robust operation in a setting with dynamic availability, i.e., the natural setting---without external trusted objects such as checkpoint blocks---where parties come and go arbitrarily, may join at any moment, or remain offline for prolonged periods of time. We prove the security of Ouroboros Genesis against a fully adaptive adversary controlling less than half of the total stake in a partially synchronous network with unknown message delay and unknown, varying levels of party availability. Our security proof is in the Universally Composable setting assuming the most natural abstraction of a hash function, known as the strict Global Random Oracle (ACM-CCS 2014); this highlights an important advantage of PoS blockchains over their PoW counterparts in terms of composability with respect to the hash function formalisation: rather than a strict GRO, PoW-based protocol security requires a "local" random oracle. Finally, proving the security of our construction against an adaptive adversary requires a novel martingale technique that may be of independent interest in the analysis of blockchain protocols.},
+booktitle = {Proceedings of the 2018 ACM SIGSAC Conference on Computer and Communications Security},
+pages = {913–930},
+numpages = {18},
+keywords = {blockchain, distributed ledgers, proof-of-stake},
+location = {Toronto, Canada},
+series = {CCS '18}
+}
+
+@phdthesis{gasper,
+  title={The gasper protocol: A proof of stake era for ethereum},
+  author={Pititto, Giulia},
+  year={2022},
+  school={Politecnico di Torino}
+}
+
+@inproceedings{tendermint,
+  title={Tendermint : Consensus without Mining},
+  author={Jae Kwon},
+  year={2014},
+  url={https://api.semanticscholar.org/CorpusID:52061503}
+}
+
+@misc{dpos_eosio,
+  title={EOS.IO Technical White Paper v2},
+  author={Greg Lee},
+  year={2018},
+  url={https://academy.bit2me.com/wp-content/uploads/2021/05/eos-whitepaper.pdf}
+}
+
+@misc{dpos_tron,
+  title={TRON: Advanced Decentralized Blockchain Platform},
+  author={Tron Network},
+  year={2025},
+  url={https://tron.network/static/doc/white_paper_v_2_1.pdf}
+}
+
+@misc{bitshares,
+  title={BitShares 2.0: The Decentralized Exchange},
+  author={Dan Larimer, Stan Larimer and Charles Hoskinson},
+  year={2023},
+  url={https://github.com/bitshares/whitepaper}
+}
+
+@INPROCEEDINGS{hyperledger_fabric,
+  author={Sukhwani, Harish and Martínez, José M. and Chang, Xiaolin and Trivedi, Kishor S. and Rindos, Andy},
+  booktitle={2017 IEEE 36th Symposium on Reliable Distributed Systems (SRDS)}, 
+  title={Performance Modeling of PBFT Consensus Process for Permissioned Blockchain Network (Hyperledger Fabric)}, 
+  year={2017},
+  volume={},
+  number={},
+  pages={253-255},
+  keywords={Computational modeling;Fabrics;Bitcoin;Protocols;Stochastic processes;Fault tolerance;blockchain;hyperledger fabric;PBFT;performance modeling;Stochastic Reward Nets},
+  doi={10.1109/SRDS.2017.36}}
