@@ -918,6 +918,14 @@ INPUT ./Chapters/chapter5.tex
 INPUT ./Chapters/chapter5.tex
 INPUT ./Chapters/chapter5.tex
 INPUT Chapters/chapter5.tex
+INPUT ./Chapters/Figures/ethereum_correct_execution.png
+INPUT ./Chapters/Figures/ethereum_correct_execution.png
+INPUT ./Chapters/Figures/ethereum_correct_execution.png
+INPUT ./Chapters/Figures/ethereum_correct_execution.png
+INPUT ./Chapters/Figures/ethereum_incorrect_execution.png
+INPUT ./Chapters/Figures/ethereum_incorrect_execution.png
+INPUT ./Chapters/Figures/ethereum_incorrect_execution.png
+INPUT ./Chapters/Figures/ethereum_incorrect_execution.png
 INPUT ./Chapters/chapter6.tex
 INPUT ./Chapters/chapter6.tex
 INPUT ./Chapters/chapter6.tex

@@ -27,4 +27,6 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Output from the log analyser script for a Chandra-Toueg execution}}{33}{figure.4.8}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Output from the log analyser script for a pBFT execution}}{35}{figure.4.9}%
 \addvspace {10pt}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Output from the log analyser script for an Ethereum correct execution}}{39}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Output from the log analyser script for an Ethereum incorrect execution}}{39}{figure.5.2}%
 \addvspace {10pt}

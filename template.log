@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.19)  30 SEP 2025 09:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.19)  30 SEP 2025 18:44
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2068,12 +2068,6 @@ LaTeX Warning: Label `sub:paxos' multiply defined.
 LaTeX Warning: Label `sub:chandra-toueg' multiply defined.
 
 
-LaTeX Warning: Label `sub:' multiply defined.
-
-
-LaTeX Warning: Label `sub:' multiply defined.
-
-
 LaTeX Warning: Label `sub:summary' multiply defined.
 
 
@@ -2232,7 +2226,21 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'template.bbl' found.
 
-(./template.bbl)
+(./template.bbl
+
+Package biblatex Warning: The following entry could not be found
+(biblatex)                in the database:
+(biblatex)                ethereum_under_scrutiny
+(biblatex)                Please verify the spelling and rerun
+(biblatex)                LaTeX afterwards.
+
+)
+
+Package biblatex Warning: citation 'ethereum_under_scrutiny'
+(biblatex)                was not found at all in the .bbl file,
+(biblatex)                bibliography labels cannot be generated,
+(biblatex)                please correct the citation.
+
 Package biblatex Info: Reference section=0 on input line 204.
 Package biblatex Info: Reference segment=0 on input line 204.
 \c@mv@tabular=\count760
@@ -2241,8 +2249,7 @@ Package biblatex Info: Reference segment=0 on input line 204.
 \cftbeforesubfigureskip=\skip296
 \cftsubfigureindent=\skip297
 \cftsubfigurenumwidth=\skip298
-
-TIME class loading=111574
+TIME class loading=115845
 \c@/@nt/hook/mainmatter/@names/@sizecnt=\count763
 \c@/@nt/hook/mainmatter/@paths/@sizecnt=\count764
 \c@/@nt/hook/mainmatter/pre/@sizecnt=\count765
@@ -2380,7 +2387,7 @@ l.215 \typeout
 
  <./NOVAthesisFiles/Schools/nova/Images/nova-insignia.pdf> <./NOVAthesisFiles/S
 chools/nova/fct/Images/nova-fct-logo.pdf>]
-TIME process covers=128734
+TIME process covers=132548
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 10.95pt on input line 216.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
@@ -2502,7 +2509,7 @@ Underfull \vbox (badness 3536) has occurred while \output is active []
 [11
 
 ] (./template.gls) (./template.acr) (./template.sls)
-TIME process frontmatter=139413
+TIME process frontmatter=143221
 (./Chapters/chapter1.tex
 NT FILE chapter1.tex
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
@@ -2768,15 +2775,45 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.11 \chapter
              {Ethereum}\label{cha:ethereum} <./Chapters/Figures/pbft_metrics.pn
-g>]) (./Chapters/chapter6.tex
-NT FILE chapter6.tex
-
+g>]
 
 [36
 
-])
+]
 
-[37
+[37]
+
+LaTeX Warning: Citation 'ethereum_under_scrutiny' on page 38 undefined on input
+ line 89.
+
+
+
+[38]
+<Chapters/Figures/ethereum_correct_execution.png, id=577, 525.965pt x 121.45375
+pt>
+File: Chapters/Figures/ethereum_correct_execution.png Graphic file (type png)
+<use Chapters/Figures/ethereum_correct_execution.png>
+Package pdftex.def Info: Chapters/Figures/ethereum_correct_execution.png  used 
+on input line 130.
+(pdftex.def)             Requested size: 325.215pt x 75.10037pt.
+<Chapters/Figures/ethereum_incorrect_execution.png, id=578, 891.33pt x 111.4162
+4pt>
+File: Chapters/Figures/ethereum_incorrect_execution.png Graphic file (type png)
+
+<use Chapters/Figures/ethereum_incorrect_execution.png>
+Package pdftex.def Info: Chapters/Figures/ethereum_incorrect_execution.png  use
+d on input line 137.
+(pdftex.def)             Requested size: 325.215pt x 40.65213pt.
+) (./Chapters/chapter6.tex
+
+[39 <./Chapters/Figures/ethereum_correct_execution.png> <./Chapters/Figures/eth
+ereum_incorrect_execution.png>]
+NT FILE chapter6.tex
+
+
+[40])
+
+[41
 
 ]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
@@ -2796,12 +2833,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[38
+[42
 
 
 ]
 
-[39]
+[43]
 \blx@maxsegment@1=\count766
 \blx@sectionciteorder@1=\count767
 Package biblatex Info: Reference section=1 on input line 236.
@@ -2833,9 +2870,9 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 236--236
 
 
 
-[40]
-TIME process mainmatter=250868
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf, id=682, 5
+[44]
+TIME process mainmatter=265613
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf, id=709, 5
 97.50829pt x 845.0471pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf Graph
 ic file (type pdf)
@@ -2856,7 +2893,7 @@ l.246 \ntprint{backcover}
 
 
  <./NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf>]
-TIME process process backcover=253821
+TIME process process backcover=268490
 \novathesis@spinewidth=\skip300
 \novathesis@boxwidth=\skip301
 \novathesis@spinetextwidth=\skip302
@@ -2886,7 +2923,7 @@ Sidefoothsep and sidefootwidth: 2.46019mm and 35.49702mm
 Sidefootvsep and sidefootheight: 4.77979mm and 208.87721mm
 ******************************************************
 
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf, id=695, 75.281
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf, id=722, 75.281
 25pt x 845.0471pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf Graphic fi
 le (type pdf)
@@ -2896,7 +2933,7 @@ pine.pdf  used on input line 250.
 (pdftex.def)             Requested size: 17.07193pt x 845.08372pt.
 \logobox=\box101
 \logoboxht=\skip303
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf, id=696, 99
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf, id=723, 99
 .98354pt x 60.7592pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf Graphi
 c file (type pdf)
@@ -2939,11 +2976,11 @@ Package logreq Info: Writing requests to 'template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60096 strings out of 473190
- 1211482 string characters out of 5715800
- 2245904 words of memory out of 5000000
- 81817 multiletter control sequences out of 15000+600000
- 746243 words of font info for 404 fonts, out of 8000000 for 9000
+ 60127 strings out of 473190
+ 1212727 string characters out of 5715800
+ 2246014 words of memory out of 5000000
+ 81842 multiletter control sequences out of 15000+600000
+ 746361 words of font info for 405 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,21n,146p,2417b,5413s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/arkandis/gillius/GilliusADFNo
@@ -2956,10 +2993,10 @@ nts/t1xtt.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplb.pfb></us
 r/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/t
 exlive/2025/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on template.pdf (55 pages, 2999097 bytes).
+Output written on template.pdf (59 pages, 3076353 bytes).
 PDF statistics:
- 1020 PDF objects out of 1200 (max. 8388607)
- 884 compressed objects within 9 object streams
- 205 named destinations out of 1000 (max. 500000)
- 167025 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 1040 PDF objects out of 1200 (max. 8388607)
+ 896 compressed objects within 9 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 167019 words of extra memory for PDF output out of 184870 (max. 10000000)
 
