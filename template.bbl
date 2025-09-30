@@ -19,6 +19,39 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{novathesis-manual}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=419e7851ce9e726652864635d63207af}{%
+           family={Lourenço},
+           familyi={L\bibinitperiod},
+           given={João\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {NOVA University Lisbon}%
+      }
+      \strng{namehash}{419e7851ce9e726652864635d63207af}
+      \strng{fullhash}{419e7851ce9e726652864635d63207af}
+      \strng{fullhashraw}{419e7851ce9e726652864635d63207af}
+      \strng{bibnamehash}{419e7851ce9e726652864635d63207af}
+      \strng{authorbibnamehash}{419e7851ce9e726652864635d63207af}
+      \strng{authornamehash}{419e7851ce9e726652864635d63207af}
+      \strng{authorfullhash}{419e7851ce9e726652864635d63207af}
+      \strng{authorfullhashraw}{419e7851ce9e726652864635d63207af}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{The NOVAthesis \LaTeX{} Template User's Manual}}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://github.com/joaomlourenco/novathesis/raw/main/template.pdf
+      \endverb
+      \verb{url}
+      \verb https://github.com/joaomlourenco/novathesis/raw/main/template.pdf
+      \endverb
+      \keyw{novathesis-manual}
+    \endentry
     \entry{tezos}{article}{}{}
       \name{author}{3}{}{%
         {{hash=2be3aaebf830fc5b984ee43cd2e43865}{%
@@ -45,8 +78,8 @@
       \strng{authornamehash}{552f723119af3ef1715ba6206a566266}
       \strng{authorfullhash}{552f723119af3ef1715ba6206a566266}
       \strng{authorfullhashraw}{552f723119af3ef1715ba6206a566266}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprinttype}{arXiv}
@@ -80,8 +113,8 @@
       \strng{authornamehash}{850981945102d0f671b6762173c8988a}
       \strng{authorfullhash}{850981945102d0f671b6762173c8988a}
       \strng{authorfullhashraw}{850981945102d0f671b6762173c8988a}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Ethereum White Paper: A Next Generation Smart Contract \& Decentralized Application Platform}
@@ -119,8 +152,8 @@
       \strng{authornamehash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{authorfullhash}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
       \strng{authorfullhashraw}{f2ae3e678f9d01bab9e7bdd3b339d5c0}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eprintclass}{cs.CR}
@@ -147,8 +180,8 @@
       \strng{authornamehash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorfullhash}{5d77435450d10a850a5b58577b9a456b}
       \strng{authorfullhashraw}{5d77435450d10a850a5b58577b9a456b}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{At the PODC 2001 conference, I got tired of everyone saying how difficult it was to understand the Paxos algorithm, published in [122]. Although people got so hung up in the pseudo-Greek names that they found the paper hard to understand, the algorithm itself is very simple. So, I cornered a couple of people at the conference and explained the algorithm to them orally, with no paper. When I got home, I wrote down the explanation as a short note, which I later revised based on comments from Fred Schneider and Butler Lampson. The current version is 13 pages long, and contains no formula more complicated than n1 > n2.}
@@ -187,8 +220,8 @@
       \strng{authornamehash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{authorfullhash}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
       \strng{authorfullhashraw}{155eaf7d6e5116ee52dc6e1fc8ee63c9}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 7th Workshop on Principles and Practice of Consistency for Distributed Data}
@@ -213,8 +246,8 @@
       \strng{authornamehash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{authorfullhash}{09c9e78c1481cee9e6190c05e10a8924}
       \strng{authorfullhashraw}{09c9e78c1481cee9e6190c05e10a8924}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Whitepaper}
@@ -258,8 +291,8 @@
       \strng{authornamehash}{f8b4730975b893fa06bc894cf1c68332}
       \strng{authorfullhash}{02c8649b966cba2d3a154a859c0c7c6d}
       \strng{authorfullhashraw}{02c8649b966cba2d3a154a859c0c7c6d}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Solana is a blockchain protocol that has gained significant attention in the cryptocurrency community. This work examines Solana’s consensus protocol and its reference implementation. In this paper we try to get an understanding of the Solana protocol. However, this is not so easy because the publicly available resources are insufficient to specify the details of the protocol. Moreover, the implementation has deviated in undocumented ways from the available protocol design description. Thus the consensus rules and their implied security properties remain unclear. We evaluate a number of experimental scenarios in a local Solana testnet. These tests seem to confirm our basic understanding that Solana does not fully achieve consensus. In this paper we show how a single malicious validator, once elected as leader, might be able to halt the Solana blockchain. We also observe some inconsistent behavior, which is not readily explained by any of the consensus rules we are aware of.}
@@ -297,8 +330,8 @@
       \strng{authornamehash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{authorfullhash}{9988303f76dfdb0a8fdf32a54e057755}
       \strng{authorfullhashraw}{9988303f76dfdb0a8fdf32a54e057755}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Design and validation of computer protocols}
@@ -558,8 +591,8 @@
       \strng{authornamehash}{8f2ddefc34459078a32130518cebf53a}
       \strng{authorfullhash}{8f2ddefc34459078a32130518cebf53a}
       \strng{authorfullhashraw}{8f2ddefc34459078a32130518cebf53a}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the 37th Annual IEEE/IFIP International Conference on Dependable Systems and Networks}
@@ -836,8 +869,8 @@
       \strng{authornamehash}{1977190f018b398e43ede3de043de8ea}
       \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
       \strng{authorfullhashraw}{1977190f018b398e43ede3de043de8ea}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.}
