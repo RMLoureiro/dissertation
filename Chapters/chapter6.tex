@@ -9,7 +9,63 @@
 \typeout{NT FILE chapter6.tex}%
 
 \chapter{Conclusions}\label{cha:conclusions}
-\section{Problem}\label{sub:summary}
-\section{Contributions}\label{sub:summary}
-\section{Future Work}\label{sub:summary}
+
+
+\section{Summary}\label{sub:summary}
+
+Blockchain technologies have seen a rise in popularity in recent years, giving rise To
+numerous blockchain protocols and consensus algorithms. The development of
+such protocols involves a lot of decisions regarding their behavior and parameterizations,
+and reasoning about these issues is often not trivial, especially without an environment to
+test and validate their execution.
+
+Having a simulator that can provide information about the protocol's execution and a wide
+range os scenarios to test, provides a great tool for prototiping and validating
+blockchain protocols with more confidence in their implementation. MOBS can also
+be a powerful debugging tool since we can use it to reproduce specific scenarios in a
+repeatable and controlled environment, which can be very difficult in real world executions.
+
+We validated MOBS capabilities by implementing and testing several well known
+and documented consensus algorithms and confirmed that we can extract enough
+qualitative data to validate the protocols' correctness. We can also see that is possible
+to extract quantitative data that can be used to compare different protocols and
+parameterizations, and even if the execution times are not representative of a real
+world scenario, we can still use them as a comparison for different protocols in
+the sae scenario.
+
+The possibility of creating a more parameterizable network layer that can
+simulate different network and membership protocols to provide scenarios more in line
+with real world scenarios. Even if our attempt was not successful, we believe that
+given a different approach, it is possible to achieve this goal.
+
+
+\section{Future Work}\label{sub:future_work}
+
+Our work can be further expanded in several ways:
+
+\begin{itemize}
+    \item \textbf{Network Layer Improvements:} The network layer can be improved to
+    provide more realistic network conditions. This could provide the user a selection
+    of different network protocols to better simulate different real world scenarios.
+
+    \item \textbf{Protocol validation layer:} The simulator can also be expanded with a network
+    module that can validate the protocol's correctness, allowing the user when parameterizing
+    the execution to select which properties to validate during the execution, or what validation
+    script should be executed at the end of the simulation. This would allow a more streamlined
+    execution instead of having to run external scripts after the simulator has finished.
+
+    \item \textbf{Seperate implementation for Byzantine nodes:} The current implementation
+    of MOBS does not provide a way to implement Byzantine nodes that run concurrently with
+    regular nodes. The current way to achieve Byzantine behavior is to implement the Byzantine
+    code concurrently with the regular code and defining a priori which nodes will be Byzantine.
+    This leads to a more complex implementataton and a greater risk of deviating from the
+    original protocol.
+
+    \item \textbf{Ability to stop and resume simulations:} The current simulator only allows
+    for the parameterization of the simulation at the start of the execution, then the user needs
+    to wait for the execution to finish in order to validate the protocol's execution. Adding a
+    debugger like process to stop the execution of the simulation under certain conditions and allow
+    the user to inspect the state of the nodes would be a powerful tool to analyze more complex scenarios
+    where the messages might not provide enough information to understand the root of the problem.
+\end{itemize}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.19)  30 SEP 2025 18:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.19)  30 SEP 2025 19:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2067,12 +2067,6 @@ LaTeX Warning: Label `sub:paxos' multiply defined.
 
 LaTeX Warning: Label `sub:chandra-toueg' multiply defined.
 
-
-LaTeX Warning: Label `sub:summary' multiply defined.
-
-
-LaTeX Warning: Label `sub:summary' multiply defined.
-
 )
 \openout1 = `template.aux'.
 
@@ -2226,21 +2220,7 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'template.bbl' found.
 
-(./template.bbl
-
-Package biblatex Warning: The following entry could not be found
-(biblatex)                in the database:
-(biblatex)                ethereum_under_scrutiny
-(biblatex)                Please verify the spelling and rerun
-(biblatex)                LaTeX afterwards.
-
-)
-
-Package biblatex Warning: citation 'ethereum_under_scrutiny'
-(biblatex)                was not found at all in the .bbl file,
-(biblatex)                bibliography labels cannot be generated,
-(biblatex)                please correct the citation.
-
+(./template.bbl)
 Package biblatex Info: Reference section=0 on input line 204.
 Package biblatex Info: Reference segment=0 on input line 204.
 \c@mv@tabular=\count760
@@ -2249,7 +2229,8 @@ Package biblatex Info: Reference segment=0 on input line 204.
 \cftbeforesubfigureskip=\skip296
 \cftsubfigureindent=\skip297
 \cftsubfigurenumwidth=\skip298
-TIME class loading=115845
+
+TIME class loading=112107
 \c@/@nt/hook/mainmatter/@names/@sizecnt=\count763
 \c@/@nt/hook/mainmatter/@paths/@sizecnt=\count764
 \c@/@nt/hook/mainmatter/pre/@sizecnt=\count765
@@ -2387,7 +2368,7 @@ l.215 \typeout
 
  <./NOVAthesisFiles/Schools/nova/Images/nova-insignia.pdf> <./NOVAthesisFiles/S
 chools/nova/fct/Images/nova-fct-logo.pdf>]
-TIME process covers=132548
+TIME process covers=129524
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
 (Font)              scaled to size 10.95pt on input line 216.
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
@@ -2509,7 +2490,7 @@ Underfull \vbox (badness 3536) has occurred while \output is active []
 [11
 
 ] (./template.gls) (./template.acr) (./template.sls)
-TIME process frontmatter=143221
+TIME process frontmatter=140302
 (./Chapters/chapter1.tex
 NT FILE chapter1.tex
 LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
@@ -2587,7 +2568,7 @@ Underfull \vbox (badness 6978) has occurred while \output is active []
 [13]
 
 [14]
-<Chapters/Figures/pbft.png, id=389, 1204.5pt x 549.05125pt>
+<Chapters/Figures/pbft.png, id=387, 1204.5pt x 549.05125pt>
 File: Chapters/Figures/pbft.png Graphic file (type png)
 <use Chapters/Figures/pbft.png>
 Package pdftex.def Info: Chapters/Figures/pbft.png  used on input line 451.
@@ -2597,7 +2578,7 @@ Package pdftex.def Info: Chapters/Figures/pbft.png  used on input line 451.
 [15 <./Chapters/Figures/pbft.png (PNG copy)>]
 
 [16]
-<Chapters/Figures/pow.jpg, id=406, 361.35pt x 143.26088pt>
+<Chapters/Figures/pow.jpg, id=404, 361.35pt x 143.26088pt>
 File: Chapters/Figures/pow.jpg Graphic file (type jpg)
 <use Chapters/Figures/pow.jpg>
 Package pdftex.def Info: Chapters/Figures/pow.jpg  used on input line 523.
@@ -2605,12 +2586,12 @@ Package pdftex.def Info: Chapters/Figures/pow.jpg  used on input line 523.
 
 
 [17 <./Chapters/Figures/pow.jpg>]
-<Chapters/Figures/pos.jpg, id=419, 377.9785pt x 120.87637pt>
+<Chapters/Figures/pos.jpg, id=417, 377.9785pt x 120.87637pt>
 File: Chapters/Figures/pos.jpg Graphic file (type jpg)
 <use Chapters/Figures/pos.jpg>
 Package pdftex.def Info: Chapters/Figures/pos.jpg  used on input line 555.
 (pdftex.def)             Requested size: 325.215pt x 104.00513pt.
-<Chapters/Figures/dpos.jpg, id=423, 377.9785pt x 188.66946pt>
+<Chapters/Figures/dpos.jpg, id=421, 377.9785pt x 188.66946pt>
 File: Chapters/Figures/dpos.jpg Graphic file (type jpg)
 <use Chapters/Figures/dpos.jpg>
 Package pdftex.def Info: Chapters/Figures/dpos.jpg  used on input line 585.
@@ -2630,7 +2611,7 @@ NT FILE chapter3.tex
 [20
 
 ]
-<Chapters/Figures/blocksim_fig.png, id=443, 604.2575pt x 419.5675pt>
+<Chapters/Figures/blocksim_fig.png, id=441, 604.2575pt x 419.5675pt>
 File: Chapters/Figures/blocksim_fig.png Graphic file (type png)
 <use Chapters/Figures/blocksim_fig.png>
 Package pdftex.def Info: Chapters/Figures/blocksim_fig.png  used on input line 
@@ -2664,7 +2645,7 @@ as been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.11 \chapter
              {MOBS}\label{cha:mobs}]
-<Chapters/Figures/modules_mobs.png, id=478, 598.235pt x 532.99126pt>
+<Chapters/Figures/modules_mobs.png, id=476, 598.235pt x 532.99126pt>
 File: Chapters/Figures/modules_mobs.png Graphic file (type png)
 <use Chapters/Figures/modules_mobs.png>
 Package pdftex.def Info: Chapters/Figures/modules_mobs.png  used on input line 
@@ -2679,7 +2660,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [25
 
 ]
-<Chapters/Figures/mobs_parameters.png, id=484, 667.49374pt x 528.97626pt>
+<Chapters/Figures/mobs_parameters.png, id=482, 667.49374pt x 528.97626pt>
 File: Chapters/Figures/mobs_parameters.png Graphic file (type png)
 <use Chapters/Figures/mobs_parameters.png>
 Package pdftex.def Info: Chapters/Figures/mobs_parameters.png  used on input li
@@ -2688,12 +2669,12 @@ ne 79.
 
 
 [26 <./Chapters/Figures/modules_mobs.png>]
-<Chapters/Figures/topology.png, id=492, 657.45625pt x 383.4325pt>
+<Chapters/Figures/topology.png, id=490, 657.45625pt x 383.4325pt>
 File: Chapters/Figures/topology.png Graphic file (type png)
 <use Chapters/Figures/topology.png>
 Package pdftex.def Info: Chapters/Figures/topology.png  used on input line 95.
 (pdftex.def)             Requested size: 325.215pt x 189.66803pt.
-<Chapters/Figures/visualizer.png, id=493, 405.515pt x 212.795pt>
+<Chapters/Figures/visualizer.png, id=491, 405.515pt x 212.795pt>
 File: Chapters/Figures/visualizer.png Graphic file (type png)
 <use Chapters/Figures/visualizer.png>
 Package pdftex.def Info: Chapters/Figures/visualizer.png  used on input line 10
@@ -2702,7 +2683,7 @@ Package pdftex.def Info: Chapters/Figures/visualizer.png  used on input line 10
 
 
 [27 <./Chapters/Figures/mobs_parameters.png> <./Chapters/Figures/topology.png>]
-<Chapters/Figures/statistics.png, id=502, 1285.80376pt x 810.02625pt>
+<Chapters/Figures/statistics.png, id=500, 1285.80376pt x 810.02625pt>
 File: Chapters/Figures/statistics.png Graphic file (type png)
 <use Chapters/Figures/statistics.png>
 Package pdftex.def Info: Chapters/Figures/statistics.png  used on input line 12
@@ -2720,14 +2701,14 @@ Underfull \vbox (badness 5741) has occurred while \output is active []
 [30]
 
 [31]
-<Chapters/Figures/consensus_log_script_v1.png, id=527, 553.06625pt x 58.2175pt>
+<Chapters/Figures/consensus_log_script_v1.png, id=525, 553.06625pt x 58.2175pt>
 
 File: Chapters/Figures/consensus_log_script_v1.png Graphic file (type png)
 <use Chapters/Figures/consensus_log_script_v1.png>
 Package pdftex.def Info: Chapters/Figures/consensus_log_script_v1.png  used on 
 input line 251.
 (pdftex.def)             Requested size: 325.215pt x 34.23253pt.
-<Chapters/Figures/consensus_log_script_v2.png, id=528, 595.22375pt x 89.33376pt
+<Chapters/Figures/consensus_log_script_v2.png, id=526, 595.22375pt x 89.33376pt
 >
 File: Chapters/Figures/consensus_log_script_v2.png Graphic file (type png)
 <use Chapters/Figures/consensus_log_script_v2.png>
@@ -2738,7 +2719,7 @@ input line 267.
 
 [32 <./Chapters/Figures/consensus_log_script_v1.png> <./Chapters/Figures/consen
 sus_log_script_v2.png>]
-<Chapters/Figures/chandra-toueg-metrics.png, id=540, 834.11626pt x 208.78pt>
+<Chapters/Figures/chandra-toueg-metrics.png, id=538, 834.11626pt x 208.78pt>
 File: Chapters/Figures/chandra-toueg-metrics.png Graphic file (type png)
 <use Chapters/Figures/chandra-toueg-metrics.png>
 Package pdftex.def Info: Chapters/Figures/chandra-toueg-metrics.png  used on in
@@ -2747,7 +2728,7 @@ put line 309.
 
 
 [33 <./Chapters/Figures/chandra-toueg-metrics.png>]
-<Chapters/Figures/pbft_metrics.png, id=550, 1080.035pt x 474.77374pt>
+<Chapters/Figures/pbft_metrics.png, id=548, 1080.035pt x 474.77374pt>
 File: Chapters/Figures/pbft_metrics.png Graphic file (type png)
 <use Chapters/Figures/pbft_metrics.png>
 Package pdftex.def Info: Chapters/Figures/pbft_metrics.png  used on input line 
@@ -2783,20 +2764,15 @@ g>]
 
 [37]
 
-LaTeX Warning: Citation 'ethereum_under_scrutiny' on page 38 undefined on input
- line 89.
-
-
-
 [38]
-<Chapters/Figures/ethereum_correct_execution.png, id=577, 525.965pt x 121.45375
+<Chapters/Figures/ethereum_correct_execution.png, id=576, 525.965pt x 121.45375
 pt>
 File: Chapters/Figures/ethereum_correct_execution.png Graphic file (type png)
 <use Chapters/Figures/ethereum_correct_execution.png>
 Package pdftex.def Info: Chapters/Figures/ethereum_correct_execution.png  used 
 on input line 130.
 (pdftex.def)             Requested size: 325.215pt x 75.10037pt.
-<Chapters/Figures/ethereum_incorrect_execution.png, id=578, 891.33pt x 111.4162
+<Chapters/Figures/ethereum_incorrect_execution.png, id=577, 891.33pt x 111.4162
 4pt>
 File: Chapters/Figures/ethereum_incorrect_execution.png Graphic file (type png)
 
@@ -2811,11 +2787,13 @@ ereum_incorrect_execution.png>]
 NT FILE chapter6.tex
 
 
-[40])
+[40]
 
 [41
 
-]
+])
+
+[42]
 LaTeX Font Info:    Font shape `T1/zpltlf/m/it' will be
 (Font)              scaled to size 8.0pt on input line 236.
 LaTeX Font Info:    Font shape `T1/zpltlf/m/sc' will be
@@ -2833,12 +2811,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[42
+[43
 
 
 ]
 
-[43]
+[44]
 \blx@maxsegment@1=\count766
 \blx@sectionciteorder@1=\count767
 Package biblatex Info: Reference section=1 on input line 236.
@@ -2870,9 +2848,9 @@ Overfull \hbox (17.0pt too wide) in paragraph at lines 236--236
 
 
 
-[44]
-TIME process mainmatter=265613
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf, id=709, 5
+[45]
+TIME process mainmatter=269086
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf, id=712, 5
 97.50829pt x 845.0471pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf Graph
 ic file (type pdf)
@@ -2893,7 +2871,7 @@ l.246 \ntprint{backcover}
 
 
  <./NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-cover-back.pdf>]
-TIME process process backcover=268490
+TIME process process backcover=272014
 \novathesis@spinewidth=\skip300
 \novathesis@boxwidth=\skip301
 \novathesis@spinetextwidth=\skip302
@@ -2923,7 +2901,7 @@ Sidefoothsep and sidefootwidth: 2.46019mm and 35.49702mm
 Sidefootvsep and sidefootheight: 4.77979mm and 208.87721mm
 ******************************************************
 
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf, id=722, 75.281
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf, id=725, 75.281
 25pt x 845.0471pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-msc-spine.pdf Graphic fi
 le (type pdf)
@@ -2933,7 +2911,7 @@ pine.pdf  used on input line 250.
 (pdftex.def)             Requested size: 17.07193pt x 845.08372pt.
 \logobox=\box101
 \logoboxht=\skip303
-<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf, id=723, 99
+<NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf, id=726, 99
 .98354pt x 60.7592pt>
 File: NOVAthesisFiles/Schools/nova/fct/Images/nova-fct-logo-negative.pdf Graphi
 c file (type pdf)
@@ -2976,10 +2954,10 @@ Package logreq Info: Writing requests to 'template.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 60127 strings out of 473190
- 1212727 string characters out of 5715800
- 2246014 words of memory out of 5000000
- 81842 multiletter control sequences out of 15000+600000
+ 60126 strings out of 473190
+ 1212724 string characters out of 5715800
+ 2246002 words of memory out of 5000000
+ 81841 multiletter control sequences out of 15000+600000
  746361 words of font info for 405 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,21n,146p,2417b,5413s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2993,10 +2971,10 @@ nts/t1xtt.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a
 .pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplb.pfb></us
 r/local/texlive/2025/texmf-dist/fonts/type1/public/newpx/zplr.pfb></usr/local/t
 exlive/2025/texmf-dist/fonts/type1/public/newpx/zplri.pfb>
-Output written on template.pdf (59 pages, 3076353 bytes).
+Output written on template.pdf (60 pages, 3079949 bytes).
 PDF statistics:
  1040 PDF objects out of 1200 (max. 8388607)
- 896 compressed objects within 9 object streams
+ 895 compressed objects within 9 object streams
  209 named destinations out of 1000 (max. 500000)
- 167019 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 167011 words of extra memory for PDF output out of 184870 (max. 10000000)
 
