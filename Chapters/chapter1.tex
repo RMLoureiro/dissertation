@@ -11,12 +11,12 @@
 \chapter{Introduction}\label{cha:introduction}
 
 This thesis aims to address practical challenges in designing, implementing and maintaining blockchain consensus
-protocols by providing a simulation environment to analyse their behaviour and offering empirical metrics of their runtime in
+protocols by providing a simulation environment to analyze their behavior and offering empirical metrics of their runtime in
 different environments and conditions. To achieve this we take the Modular Blockchain Simulator (\href{https://github.com/mce-alves/MOBS
 }{MOBS}) and expand the previously done work to help better test and validate these protocols with tools to extract statistics and 
 qualitative data about their runtime. We also tested the viability to provide a more dynamic and independent network layer
 to better simulate real-world conditions, this provides programmers a tool to more quickly prototype protocols or solutions
-in a simulated, modular and parameterizable environment where executions can be repeated and a wide range of scenarios
+in a simulated, modular and parametrizable environment where executions can be repeated and a wide range of scenarios
 can be used for testing.
 
 \prependtographicspath{{Chapters/Figures/Covers/}}
@@ -56,22 +56,23 @@ The challenges in developing blockchain protocols motivated the development of M
 the ability to simulate different families of blockchain and consensus protocols.
 MOBS provides a parametrizable execution of the selected protocols, exhibiting a modular and extensible structure and offers detailed logs for the
 qualitative evaluation for the study of implemented protocols. However, this simulator has limitations such as a network layer
-that only allows for static parameterizations, network layout and node behaviours are defined before runtime and there is no mechanism to
+that only allows for static parameterizations, network layout and node behaviors are defined before runtime and there is no mechanism to
 re-structure the network after a node fails or leaves the system, there is also a lack of qualitative data making it difficult to
 evaluate the protocols' execution.
 
 \section{Problem}\label{sub:problem}
 Consensus protocols are inherently complex to design and implement correctly~\cite{paxos, have_we_reached_consensus}.
-In blockchain systems, where dynamic behavior and financial transactions are predominant, protocol correctness becomes critical,
-as even minor errors can result in significant financial losses and system failures. One example of this is Ethereum moving from 
-Proof of Work to a Proof of Stake consensus; this opened the protocol to vulnerabilities to bouncing attacks on liveness~\cite{ethereum_analysis}.
-This type of attack prevents the chain from being finalized because the main selected chain in the fork choice rule
-is continually bouncing between two alternative branches.
+In blockchain systems, where financial transactions and dynamic behavior are the primary features, protocol correctness is essential,
+as even minor errors can lead to substantial financial losses and system malfunctions. One illustration of this is the transition of
+Ethereum from a Proof of Work to a Proof of Stake consensus. This transition exposed the protocol to vulnerabilities that could be
+exploited by bouncing attacks on liveness~\cite{ethereum_analysis}.
+The chain is unable to be finalized as a result of this type of attack, as the primary selected chain in the fork
+choice rule is perpetually hopping between two alternative branches.
 
 There is also Solana~\cite{solana}, a new blockchain protocol that relies on Proof-of-History to build its chain,
 where repeated testing results showed that the protocol does not fully achieve consensus and
 a single malicious validator can halt the Solana blockchain~\cite{solana_halting_problem}. These tests also showed that there are
-inconsistencies in the behaviour between what is described in the documentation and what the protocol showed since Solana's implementation
+inconsistencies in the behavior between what is described in the documentation and what the protocol showed since Solana's implementation
 has deviated in undocumented ways from the available protocol design descriptions.
 
 Consensus and blockchain protocols are usually described with pseudocode and model checked with idealized languages that 
@@ -84,7 +85,7 @@ changing the execution parameters, aiming to catch vulnerabilities or even logic
 Since verification of protocols is very costly, developers can use MOBS to get confidence in their implementations
 from experimentations first.
 
-Right now the parameters to the network are set before the execution of the simulation, and regarding the network behaviour, we can
+Right now the parameters to the network are set before the execution of the simulation, and regarding the network behavior, we can
 set the network topology and how many nodes will fail and when. In the real world a network's topology is dynamic, new nodes can enter
 as new participants, existing ones can leave, either by choice or by failure, and even when the participants are static the network
 can suffer changes to its topology as a result of optimizations performed by this layer.
@@ -96,8 +97,8 @@ together with the lack of qualitative data provided by the simulator, validating
 \section{Goal}\label{sub:goal}
 
 With the different properties that different network overlays provide besides the parameterizations that are already provided by MOBS,
-we can offer a more complete simulator that allows for the study of the behaviour in different membership protocols.
-This will allow us to leverage the modularity of this layer to better simulate the behaviour of new participants coming into the system, existing
+we can offer a more complete simulator that allows for the study of the behavior in different membership protocols.
+This will allow us to leverage the modularity of this layer to better simulate the behavior of new participants coming into the system, existing
 ones leaving and how changes to the network topology of the network affects their execution.
 
 Another aspect we improve is the logging module of MOBS, by providing a template for logging of consensus protocols and
@@ -109,7 +110,7 @@ number of agreements messages received after consensus.
 The goal of this thesis is twofold: first to improve the networking layer of MOBS by making it more modular and therefore giving the following advantages:
 \begin{itemize}
   \item Different environments for more diverse testing scenarios,
-  \item Stronger parameterization regarding the behaviour of the network,
+  \item Stronger parameterization regarding the behavior of the network,
   \item Better qualitative data by providing scenarios that better mimic real world execution;
 \end{itemize}
 
@@ -138,7 +139,7 @@ To achieve this we extended MOBS (\href{https://github.com/RMLoureiro/MOBS}{MOBS
 
 
 \section{Contributions}\label{sub:contributions}
-The contributions to this thesis focues on the implementation and evaluation of consensus protocols in MOBS, to verify that MOBS can be used
+The contributions to this thesis focuses on the implementation and evaluation of consensus protocols in MOBS, to verify that MOBS can be used
 has a tool for prototyping and validation. The protocols implemented and evaluated were:
 \begin{itemize}
   \item Chandra-Toueg~\cite{chandra}, a simple consensus protocol to ensure the logs from MOBS can be used to evaluate consensus properties,

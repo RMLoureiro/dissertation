@@ -45,7 +45,7 @@ how the different modules interact. These modules are:
 protocols.
   \item \textbf{Protocol:} Top-level loop of the simulation, initializes the different
 nodes, network topology, event queue and performs event handling and delegation.
-  \item \textbf{Node:} This is a user defined module that describes the behaviour
+  \item \textbf{Node:} This is a user defined module that describes the behavior
 of an entity in the simulated protocol.
   \item \textbf{Abstractions:} This module provides primitives to aid in the
 development of new simulation such as proof of stake sortation, proof of work mining,
@@ -93,7 +93,7 @@ topology as well as set individual parameters for each node.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{topology}
-	\caption{Topology window and possible parametrizations for each individual node}
+	\caption{Topology window and possible parameterizations for each individual node}
 	\label{fig:topology}
 \end{figure}
 
@@ -135,7 +135,7 @@ evaluating the viability of implementing membership protocols in the network lay
 allowed us to better understand the internal structure of MOBS and its limitations.
 
 To achieve this implementation we made use of MOBS Node module and implemented the
-following events in accordance to the Chord papper~\cite{chord}:
+following events in accordance to the Chord paper~\cite{chord}:
 
 \begin{itemize}
   \item \textbf{Join: } An event that a node receives when another node first joins
@@ -203,7 +203,7 @@ to specific nodes.
 
 We can also leverage this implementation at the network level to make the network
 module even more modular and extensible, making it easier to implement new network protocols
-and achieving a more dynamic, varied and realistic network layer better mimicing the real world.
+and achieving a more dynamic, varied and realistic network layer better mimicking the real world.
 
 \subsection{Consensus protocols}\label{sub:consensus_protocols_implemented}
 One of the problems we want to tackle with this thesis is getting better qualitative information out of
@@ -223,11 +223,11 @@ than regular Paxos, this was done for the sake of simplicity an ease of implemen
 To implement this protocol we defined the following events:
 \begin{itemize}
 	\item \textbf{Propose: } This event is triggered by the proposer node to start a new round, this is used
-  as a control message for logging, while the proposer send this to himslf and has no real effect in the protocol,
-	it also broadcasts a Prepare message to all its neighbours.
+  as a control message for logging, while the proposer send this to himself and has no real effect in the protocol,
+	it also broadcasts a Prepare message to all its neighbors.
   \item \textbf{Prepare: } This event is broadcasted by the proposer to all nodes to start a new round,
 	if the receiving nodes accepts the proposal it will reply with a Promise message to the proposer and
-	propagate the Prepare message to its neighbours. This repeats until every node receives the Prepare message
+	propagate the Prepare message to its neighbors. This repeats until every node receives the Prepare message
 	at least once. If a node detects this message is a duplicate it will ignore it.
   \item \textbf{Promise: } When the proposer receives a Promise message from a node, and it has the same value it was proposed
 	it will add the sender to the promise quorum. When the promise quorum reaches over \textit{2/3} of the network size it will
@@ -249,7 +249,7 @@ scrub the logs and extract runtime metrics:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{consensus_log_script_v1}
-	\caption{Output from the first iteration of the log analyser script}
+	\caption{Output from the first iteration of the log analyzer script}
 	\label{fig:consensus_log_script_v1}
 \end{figure}
 
@@ -265,7 +265,7 @@ accepted without being proposed or if a value was accepted and the Propose messa
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{consensus_log_script_v2}
-	\caption{Output from the second iteration of the log analyser script}
+	\caption{Output from the second iteration of the log analyzer script}
 	\label{fig:consensus_log_script_v2}
 \end{figure}
 
@@ -286,7 +286,7 @@ To implement this protocol we defined the following events:
 \begin{itemize}
 	\item \textbf{Start: } This event when is received by a node will trigger the start of a new round,
 a node will send a Preference message to the coordinator with their proposed value and propagate the Start message
-to its neighbours. This repeats until every node receives the Start message at least once. If a node detects
+to its neighbors. This repeats until every node receives the Start message at least once. If a node detects
 this message is a duplicate it ignores it.
 	\item \textbf{Preference: } A preference message is sent by a node to the coordinator with their proposed value,
 	when the coordinator receives this message it will add the sender to the preference quorum. When the preference quorum
@@ -307,7 +307,7 @@ Chandra-Toueg took on average half the time Paxos took to reach consensus.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{chandra-toueg-metrics}
-	\caption{Output from the log analyser script for a Chandra-Toueg execution}
+	\caption{Output from the log analyzer script for a Chandra-Toueg execution}
 	\label{fig:chandra-toueg-metrics}
 \end{figure}
 
@@ -321,7 +321,7 @@ The implementation can be consulted at \href{https://github.com/RMLoureiro/MOBS/
 To achieve this implementation we implemented the following events:
 \begin{itemize}
 	\item \textbf{Request: } This event is sent to the client node to start a new round, this is used
-	as a control message for logging, the client will gossip a Pre-Prepare message to all its neighbours.
+	as a control message for logging, the client will gossip a Pre-Prepare message to all its neighbors.
 	\item \textbf{Pre-Prepare: } All other nodes do their startup with this message,
 	when the receiving nodes accepts the proposal it will send with a Prepare message to all the other nodes.
 	\item \textbf{Prepare: } When receiving a Prepare message  the receiver
@@ -356,13 +356,13 @@ are more than 5 view changes without a value being accepted.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{pbft_metrics}
-	\caption{Output from the log analyser script for a pBFT execution}
+	\caption{Output from the log analyzer script for a pBFT execution}
 	\label{fig:pbft_metrics}
 \end{figure}
 
 \subsubsection{Results Analysis}\label{sub:results_comparison}
 After the implementations were completed we compared their executions.
-For all executions we ran for a simulated time o 1.000.000ms with a network of 20 nodes and extracted
+For all executions we ran for a simulated time of 1.000.000ms with a network of 20 nodes and extracted
 the following metrics: average time per consensus, average acceptance percentage and number of consensus reached.
 The results can be seen in Table~\ref{tab:simulation_comparison}.
 
@@ -386,6 +386,6 @@ which aligns with its design for efficiency in asynchronous systems. PBFT, while
 was slower than Paxos with a single proposer but faster than Paxos with multiple proposers.
 We found that all protocols had a high acceptance percentage, and even though we were expecting 100\%
 acceptance in all protocols,
-after manually analysing the logs we came to the conclusion that the missing percentage of acceptance
+after manually analyzing the logs we came to the conclusion that the missing percentage of acceptance
 came from the protocol runtime being limited and the simulation ending before all the Accept
 messages reached the proposer, since all values before accounted for 100\% acceptance.

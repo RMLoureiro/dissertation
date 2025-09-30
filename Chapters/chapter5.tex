@@ -10,12 +10,13 @@
 
 \chapter{Ethereum}\label{cha:ethereum}
 
-This chapter provides a detailed description of the Ethereum protocol, 
-focusing on its transition from Proof of Work (PoW) to Proof of Stake (PoS) consensus mechanism. 
-It also discusses a specific vulnerability known as the bouncing attack, along with a proposed solution and its critical analysis. 
-Finally, the chapter outlines the implementation of these concepts in the Mobs simulator, 
-including specifications, implementation details, validation processes, and results analysis.
-Ethereum has been widely used and provides the foundation of numerous applications, such as non-fungible tokens (NFTs), decentralized finance (DeFi) platforms, and other decentralized apps (dApps).
+This chapter provides a detailed description of the Ethereum protocol,
+with a particular emphasis on its transition from the Proof of Work (PoW) to the Proof of Stake (PoS) consensus process. 
+It also addresses a particular vulnerability, the Bouncing Attack, and provides a critical analysis of its proposed solution. 
+Lastly, this chapter delineates the implementation in MOBS of these concepts, which includes specifications,
+implementation details, validation procedures, and results analysis.
+Ethereum has been extensively utilized and serves as the foundation for a variety of applications,
+including decentralized finance (DeFi) platforms, non-fungible tokens (NFTs), and other decentralized apps (dApps).
 
 \section{Protocol Description}\label{sub:protocol_description}
 
@@ -51,8 +52,8 @@ selected in the fork choice rule continually bounce between two candidate chains
 candidate chains should start from the justified checkpoint with the highest epoch, and Byzantine nodes exploit this by
 dividing honest validators opinions, justifying a new checkpoint after some honest validators already have cast their vote.
 
-Justification is the first step in the finalization of a block and a jusfiable checkpoint is a checkpoint that can be justified.
-The finalization process is always applied to a checkpoint and a checkpoint neeeds to be justified before being finalized.
+Justification is the first step in the finalization of a block and a justifiable checkpoint is a checkpoint that can be justified.
+The finalization process is always applied to a checkpoint and a checkpoint needs to be justified before being finalized.
 
 The attack becomes possible once there is a justifiable checkpoint in a different branch than the one selected by the fork choice rule it has a
 higher epoch than the checkpoint of the branch selected in the fork choice rule. When this happens, Byzantine nodes can now
@@ -62,10 +63,10 @@ bounce their choice between two chains, preventing finalization.
 
 \subsection{Proposed Solution}\label{sub:proposed_patch}
 
-The proposed and implmented solution by the ethereum community to mitigate this attack is simple, add an extra restriction
+The proposed and implemented solution by the Ethereum community to mitigate this attack is simple, add an extra restriction
 and prevent validators from changing their mind regarding justified checkpoints after the epoch has passed. This aims to prevent
 honest validators from leaving a justifiable checkpoint behind. And even though the seems like a good solution it has a problem,
-if byzantine nodes wait long enough to send their messages, those messages can be considered invalid for some honest validators and
+if Byzantine nodes wait long enough to send their messages, those messages can be considered invalid for some honest validators and
 just in time by others, thus splitting the votes of honest validators between two chains and not finalizing the checkpoint. This
 makes the solution probabilistic and while it may be better and prevent some attacks from malicious actors, it does not completely
 protect the network, or guarantees liveness.
@@ -73,8 +74,8 @@ protect the network, or guarantees liveness.
 
 \section{Implementation In Mobs}\label{sub:implementation_in_mobs}
 
-To make this implementation in MOBS we followed the specifications in ~\cite{ethereum_analysis} where the attack and 
-the finalization process are described in detail. Our goal with this implementation is to check if MOBS can simulate
+To make this implementation in MOBS we followed the specifications in the paper Ethereum Proof-of-Stake under scrutiny~\cite{ethereum_analysis},
+ where the attack and the finalization process are described in detail. Our goal with this implementation is to check if MOBS can simulate
 the protocol, the attack and the proposed solution and has enough information in the locks to detect when the attack happens and
 if the solution was effective.
 
@@ -86,8 +87,8 @@ to simplify the logic and avoid complexity in parts of the implementation that a
     \item We assume that the network is consistent throughout the execution of the protocol, meaning no node crash faults
 or enters the network after the protocol starts.
     \item We assume that the proposer nodes are the same throughout the execution of the protocol and ignore the random election
-described in the Ethereum under scrutiny paper ~\cite{ethereum_analysis}.
-    \item Since it is always not relevant to the attack we assume there will be no Byzantine behaviour regarding message
+described in the Ethereum under scrutiny paper~\cite{ethereum_analysis}.
+    \item Since it is always not relevant to the attack we assume there will be no Byzantine behavior regarding message
 tampering or message dropping.
 \end{itemize}
 
@@ -102,14 +103,23 @@ To achieve this implementation we implemented the following events:
     \item \textbf{Attestation:} When a node sends an attestation message, the receiving node updates their attestation quorum, a hash table where the key is
     the epoch and the value is a list of attestations, only the most recent attestation for each node is kept
     \item \textbf{JustificationFinalization:} In the last slot of each epoch this event is triggered and to simplify and avoid issues with message delays only
-    one node justifies and tries to finalyze blocks. First it checks what justifiable checkpoint got the mosst votes this epoch and finalyzes it if the number
-    of votes is greater than 2/3 of the total number of nodes. Then it checks the last four justified checkpoints and checks if any of them can be finalized,
+    one node justifies and tries to finalize blocks. First it checks what justifiable checkpoint got the most votes this epoch and finalizes it if the number
+    of votes is greater than \textit{2/3} of the total number of nodes. Then it checks the last four justified checkpoints and checks if any of them can be finalized.
+    A snippet of the code is shown\ref{fig:justification_finalization_event} below.
     \item \textbf{FinalizedNode:} If a node can be finalized this event is triggered, this acts as a control point for the validation script to know when and which block
     was finalized and when a node receives this message it updates its tree to contain the finalized block.
     \item \textbf{IncrementSlot:} This is a periodic event whose sole purpose is to increment the slot and epoch counter.
 \end{itemize}
 
-The implemantation also haas the logic for the attack and the patch. For the attack we have a variable for each node that is set to true
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{justification_finalization_event}
+	\caption{Code for JustificationFinalization event}
+	\label{fig:justification_finalization_event}
+\end{figure}
+
+
+The implementation also has the logic for the attack and the patch. For the attack we have a variable for each node that is set to true
 if the execution is Byzantine and false otherwise. In a Byzantine execution a proposer sends a delayed message so that after the attesters
 voted we change the checkpoint for the current epoch and preventing the node from finalizing any block, thus making honest nodes bounce between
 two nodes belonging to different chains.
@@ -117,8 +127,48 @@ two nodes belonging to different chains.
 For the patch we added a simple check and ignore all proposes after a certain point in the epoch, this ensures that honest nodes do not change their mind
 by not being able to attest after receiving a new proposed block.
 
+To be able to implement Ethereum in MOBS we also needed an n-ary tree structure to represent the blockchain, since this type of
+data structure was not provided by OCaml. Our implementation of the tree is simple, each node can either be a leaf, containing a single block,
+or a node, represented by a block and a list of children nodes.
 
+Some of the implemented functions are:
+\begin{itemize}
+    \item \textbf{find\_deepest\_path:} This function takes the tree as an argument and returns a list representing the path to the deepest node in the tree.
+    \item \textbf{deepest\_justified\_on\_path:} Here we give the tree as an argument and the deepest justified checkpoint in the path given by the
+    find\_deepest\_path function is returned.
+    \item \textbf{get\_latest\_checkpoint:} Giving the tree as an argument, returns the latest checkpoint in the tree.
+    \item \textbf{get\_last\_four\_checkpoints:} This was the most complex function to implement, it returns the last four justified checkpoints in the tree and
+    is needed in the JustificationFinalization event.
 \subsection{Validation}\label{sub:validation}
+Snippets of the code for each of the given functions can be found bellow.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{find_deepest_path}
+	\caption{Code for find\_deepest\_path function}
+	\label{fig:find_deepest_path}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{deepest_justified_on_path}
+	\caption{Code for deepest\_justified\_on\_path function}
+	\label{fig:deepest_justified_on_path}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{get_latest_checkpoint}
+	\caption{Code for get\_latest\_checkpoint function}
+	\label{fig:get_latest_checkpoint}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=4.5in, angle =0]{get_last_four_checkpoints}
+	\caption{Code for get\_last\_four\_checkpoints function}
+	\label{fig:get_last_four_checkpoints}
+\end{figure}
 
 To validate the execution of the protocol we created a validation script that checks if for every epoch a block was finalized.
 The script reads the log file generated by MOBS and checks which block was finalized in each epoch, if no block was finalized
@@ -128,14 +178,14 @@ The tests were executed with 10 nodes, 1 of them was Byzantine and the rest hone
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{ethereum_correct_execution}
-	\caption{Output from the log analyser script for an Ethereum correct execution}
+	\caption{Output from the log analyzer script for an Ethereum correct execution}
 	\label{fig:ethereum_correct_execution}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=4.5in, angle =0]{ethereum_incorrect_execution}
-	\caption{Output from the log analyser script for an Ethereum incorrect execution}
+	\caption{Output from the log analyzer script for an Ethereum incorrect execution}
 	\label{fig:ethereum_incorrect_execution}
 \end{figure}
 
@@ -146,5 +196,5 @@ just as shown in the figures ~\ref{fig:ethereum_correct_execution} and ~\ref{fig
 do a more detailed analysis and extract more data from the logs, such as the number of votes per checkpoint per epoch, the number of times
 the honest nodes bounced between two chains, and the number of times a block was proposed but not finalized.
 We would also have liked to do a more thorough test of the patch and try to simulate what is said in the paper~\cite{ethereum_analysis} that
-the patch is only a probablistic solution and that if Byzantine nodes waits and sends a message in the correct slote can still split the votes of honest nodes
+the patch is only a probabilistic solution and that if Byzantine nodes waits and sends a message in the correct slot can still split the votes of honest nodes
 and keep prevent finalization, but we were not able to do this due to time constraints.

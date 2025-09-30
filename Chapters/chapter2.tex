@@ -97,9 +97,9 @@ navigating the ring node by node.
 The tables maintained by these nodes are automatically updated when a new node joins
 or leaves the system  making it always possible to find a node responsible to a given
 key. However, simultaneous failures may break the overlay since the correctness
-of the membership depends on each node knowing their correct neighbours. In order
+of the membership depends on each node knowing their correct neighbors. In order
 to increase fault tolerance, a periodical stabilization protocol is run in background,
-making sure the neighbours are still active and restructuring the overlay
+making sure the neighbors are still active and restructuring the overlay
 accordingly as well as updating the entries on the finger table.
 
 \subsubsection{Pastry}\label{subsec:pastry}
@@ -112,13 +112,13 @@ node's position in a circular space that ranges from 0 to $2^{128}-1$. It is ass
 that the hash function that gives the node's identifier generated a uniform
 distribution of identifiers around the 128-bit space.
 
-Each Pastry node maintains a \textit{routing table}, a \textit{neighbourhood set}
+Each Pastry node maintains a \textit{routing table}, a \textit{neighborhood set}
 and a \textit{leafing set}. The routing table is organized in levels, where each level
 \textit{l} contains entries for nodes that share an \textit{l}-digit prefix with the local
 node's identifier, typically using base-$2^b$ encoding (commonly b=4), the routing
 table has up to $2^b$ entries per level, allowing efficient prefix-based routing.
 
-The neighbourhood set contains the \textit{M} nodes that are closest to the local node in
+The neighborhood set contains the \textit{M} nodes that are closest to the local node in
 terms of network proximity (measured by latency or network distance), not identifier space proximity.
 
 The leaf set contains the \textit{L}/2 numerically closest nodes with smaller identifiers and \textit{L}/2
@@ -126,17 +126,17 @@ numerically closest nodes with larger identifiers in the circular identifier spa
 
 When a new node joins, it contacts an existing nearby node and obtains initial routing state by querying
 nodes along the path to its final position and updates routing tables, leaf sets,
-and neighbourhood sets of affected nodes. 
+and neighborhood sets of affected nodes. 
 
 Pastry runs periodic maintenance protocols to ensure routing correctness. Nodes periodically exchange
-keepalive messages with their leaf set and neighbourhood set members, update routing table entries by probing
+keep-alive messages with their leaf set and neighborhood set members, update routing table entries by probing
 nodes with longer common prefixes, and repair any detected inconsistencies in their routing state when there are changes
-in the memberhsip.
+in the membership.
 
 Pastry uses a three-step routing algorithm: (1) if the destination is within the leaf set range,
 route directly to the destination or the numerically closest node; (2) if not, forward to a node from
 the routing table that shares a longer common prefix with the destination; (3) if no such node exists,
-forward to a node from the leaf set or neighbourhood set that is numerically closer to the destination.
+forward to a node from the leaf set or neighborhood set that is numerically closer to the destination.
 With this algorithm Pastry achieves O(\textit{log N}) expected routing hops for message delivery and maintains
 O(\textit{log N}) routing state per node, making it highly scalable for large networks.
 
@@ -144,7 +144,7 @@ O(\textit{log N}) routing state per node, making it highly scalable for large ne
 \subsection{Unstructured Overlays}\label{sub:unstructured_overlays}
 
 Unstructured overlays place few constrains as on how the nodes chose their
-neighbours. This results in a random graph that is hard to predict and describe.
+neighbors. This results in a random graph that is hard to predict and describe.
 
 By not having a structured overlay these memberships end up being more fault-tolerant
 in high churn rate scenarios due to the cost of the network restructuring
@@ -181,10 +181,10 @@ failure detection procedure.
 
 SWIM achieves excellent scalability properties: failure detection time is O(\textit{1}) with respect to group size,
 and each node generates a constant message load per time period regardless of the total number of nodes.
-The protocol provides eventual consistency of membership views across all nodes, with new nodes joining
-by contacting any existing member and receiving the current membership list. The weak consistency model
+The protocol provides eventual consistency of membership views across all nodes, new nodes join
+by contacting any existing member and receiving their current membership list. The weak consistency model
 ensures that all correct nodes eventually converge to the same membership view, though temporary
-inconsistencies may exist during periods of high churn.
+inconsistencies may exist during high churn periods.
 
 \subsubsection{HyParView}\label{subsec:hyparview}
 
@@ -210,7 +210,7 @@ graph that represents the overlay be a bidirectional graph.
 For the passive view, HyParView uses a cyclic strategy with periodic shuffle operations
 every \textit{t} seconds (typically 10-30). During a shuffle, a node exchanges
 a subset of its passive view with a randomly selected active neighbor.
-The neighbour responds with its own partial passive view. Both nodes
+The neighbor responds with its own partial passive view. Both nodes
 integrate received entries while maintaining view size limits through age-based eviction.
 This mechanism ensures O(\textit{log N}) mixing time for achieving uniform random sampling
 across the network and maintains connectivity with high probability.
@@ -239,9 +239,9 @@ T-MAN~\cite{tman} was created with the motivation to give
 the ability of taking some random overlay, and \textit{evolve} it into another one.
 
 The logic behind the algorithm is giving each node a ranking value that every node can
-use to apply a function to determine how desirable a node is as a neighbour.
+use to apply a function to determine how desirable a node is as a neighbor.
 Each node maintains a partial view that contains the addresses of nodes that are not its
-immediate neighbours, much like the HyParView overlay described in \ref{subsec:hyparview}.
+immediate neighbors, much like the HyParView overlay described in \ref{subsec:hyparview}.
 Periodically each node exchanges its partial view with the first node in its active view,
 according to the ranking
 values which depends on the target overlay. The receiver will execute the same procedure
@@ -286,13 +286,13 @@ efficiency.
 
 \section{Consensus Protocols}\label{sec:consensus}
 
-Consensus protocols address the fundamental challenge of enabling distributed participants 
-to reach agreement on a specific value, this is essential for building reliable distributed 
-systems such as replicated databases, distributed file systems, and blockchain networks.
-These algorithms must ensure agreement is reached even in the presence of faulty nodes, 
-network partitions, and asynchronous communication delays.
+Consensus protocols are essential for the development of dependable distributed systems,
+including replicated databases, distributed file systems and blockchain networks. They facilitate
+the fundamental challenge of enabling distributed participants to reach agreement on a specific value.
+These algorithms must guarantee that agreement is achieved in the presence of asynchronous communication
+delays, network partitions, and defective nodes.
 
-Any consensus protocol must satisfy the following four fundamental properties~\cite{distributed_systems_concepts}:
+Any consensus protocol must satisfy the following properties~\cite{distributed_systems_concepts}:
 \begin{itemize}
   \item \textbf{Termination:} Eventually, every correct process decides some value.
   \item \textbf{Agreement:} If all correct processes propose the same value \textit{v}, 
@@ -300,10 +300,10 @@ then any correct process that decides a value must decide \textit{v}.
   \item \textbf{Integrity:} No correct process decides more than once.
 \end{itemize}
 
-Consensus protocols differ in their assumptions about the system model, including synchrony,
-failure types (crash-fault vs. byzantine-faults), and the number of faults
-tolerated. The famous FLP impossibility result shows that deterministic consensus is 
-impossible in asynchronous systems with even one crash failure, making practical protocols
+Consensus protocols differ on their assumptions about the system model's synchrony,
+failure types and the number of faults
+tolerated. FLP shows that deterministic consensus is 
+impossible in asynchronous systems where there is at least one crash failure, making practical protocols
 rely on additional assumptions like partial synchrony or randomization.
 
 We will now examine specific protocols that solve consensus under different system models.
@@ -329,16 +329,16 @@ rounds, where \textit{f} is the number of process failures. The protocol proceed
 in asynchronous rounds with a rotating coordinator selected in round-robin fashion. Each round consists of four phases:
 
 \begin{enumerate}
-  \item \textbf{Phase 1:} All processes send their current estimate and timestamp to the coordinator.
-  \item \textbf{Phase 2:} The coordinator waits to receive messages from a majority of processes.
-  If successful, it selects the estimate with the highest timestamp and broadcasts this chosen
-  value to all processes. If the coordinator is suspected of failure, it proceeds to the next round.
+  \item \textbf{Phase 1:} All processes send their current value and timestamp to the coordinator.
+  \item \textbf{Phase 2:} The coordinator awaits to receive messages from a majority of processes.
+  If successful, selects the value with the highest timestamp and broadcasts its chosen
+  value to all processes. If the coordinator is suspected of failure, proceeds to the next round.
   \item \textbf{Phase 3:} Each process waits to receive the coordinator's proposal or for
-  its failure detector to suspect the coordinator as failed:
+  the failure detector to suspect the coordinator as failed:
   \begin{itemize}
-    \item If the proposal is received, the process adopts it as its new estimate and sends
+    \item If the proposal is received then the process adopts it as its new value and sends
     an \textit{ACK} to the coordinator.
-    \item If the coordinator is suspected as failed, the process sends a \textit{NACK} and proceeds
+    \item If the coordinator is suspected of failure then the process sends a \textit{NACK} and proceeds
     to the next round with a new coordinator.
   \end{itemize}
   \item \textbf{Phase 4:} If the coordinator receives \textit{ACKs} from a majority of processes,
@@ -419,20 +419,18 @@ the overhead for each round.
 \subsection{Practical Byzantine Fault Tolerance (pBFT)}\label{sub:pbft}
 
 Practical Byzantine Fault Tolerance (pBFT)~\cite{pbft} provides a solution for achieving
-consensus in partially synchronous networks supporting \textit{f} nodes with Byzantine behaviour
-in a network of \textit{3f+1} nodes. Unlike probabilistic consensus
-mechanisms, pBFT guarantees immediate finality and strong consistency, making
-it suitable for applications requiring deterministic transaction confirmation.
+consensus in partially synchronous networks supporting \textit{f} nodes with Byzantine behavior
+in a network of \textit{3f+1} nodes and guarantees strong consistency.
 
-The pBFT protocol operates through a three-phase process for each consensus round:
+pBFT reaches consensus in three steps:
 \begin{enumerate}
-  \item \textbf{Pre-prepare:} The primary replica broadcasts a pre-prepare message
-  containing the proposed operation sequence number and client request.
-  \item \textbf{Prepare:} Upon receiving a valid pre-prepare message, backup replicas
-  broadcast prepare messages, indicating agreement with the proposed operation ordering.
-  \item \textbf{Commit:} Once a replica receives \textit{2f} prepare messages from different
-  replicas, it broadcasts a commit message and executes the operation after receiving
-  \textit{2f+1} commit messages.
+  \item \textbf{Pre-prepare:} The primary node broadcasts a pre-prepare message
+  containing the proposed sequence number and client request.
+  \item \textbf{Prepare:} When a node receives a valid pre-prepare message, the other nodes
+  broadcast a Prepare message if they agree with the proposed sequence number.
+  \item \textbf{Commit:} Once it receives \textit{2f} Prepare messages from different
+  nodes, nodes then broadcast a Commit message. Consensus is reached when the client receives
+  \textit{2f+1} Commit messages for the same request.
 \end{enumerate}
 
 The protocol ensures safety through view changes when the primary is suspected
@@ -441,10 +439,8 @@ are widely used in permissioned blockchain networks such as Hyperledger Fabric~\
 and various consortium blockchain implementations, where the set of validators
 is known, and network communication is more reliable than in public networks.
 
-While pBFT provides strong consistency guarantees, its O($n^2$) message complexity
-limits scalability to networks within hundreds rather than thousands of participants,
-making it more suitable for a smaller number of participants like in 
-consortium and private blockchain deployments.
+While pBFT provides strong consistency guarantees, it has O($n^2$) message complexity,
+which limits scalability to networks with a large number of participants.
 
 \begin{figure}[h]
 	\centering
@@ -455,68 +451,60 @@ consortium and private blockchain deployments.
 
 \section{Blockchain Protocols}\label{sec:blockchain}
 
-Blockchain protocols are the set of rules that govern how data is secured, recorded and shared
-with a blockchain network, usually a distributed ledger that maintains a continuously
-growing list of records (blocks) linked and secured using cryptographic hashes. These blocks
-are linked in a chain that is immutable and tamper-evident, making it suitable for applications
-that require trustless consensus among distributed participants.
+Blockchain protocols are a set of principles that regulate the security, recording, and sharing of data
+within a blockchain network. A distributed ledger
+maintains a continuously expanding list of records, or blocks, linked and secured using
+cryptographic hashes. These blocks are connected in a chain
+that is both tamper-evident and immutable, making it a great choice for applications that
+needs trusted consensus among distributed participants.
 
-Blockchain protocols are usually designed with the goal to achieve four key properties:
+Blockchain protocols are designed with the goal of achieving four key properties:
 \begin{itemize}
-  \item \textbf{Decentralization:} No single point of control or failure, data is replicated across multiple nodes.
-  \item \textbf{Immutability:} Historical records cannot be altered due to cryptographic linking.
-  \item \textbf{Transparency:} All transactions are visible to all network participants
-  \item \textbf{Consensus:} All nodes maintain consistent state despite potential Byzantine faults.
+  \item \textbf{Decentralization:} There isn't a single point of control or failure,
+  data is replicated across multiple nodes.
+  \item \textbf{Immutability:} Historical records of operations cannot be altered.
+  \item \textbf{Transparency:} All transactions are visible to all participants.
+  \item \textbf{Consensus:} All nodes maintain a consistent state despite potential Byzantine faults.
 \end{itemize}
 
-Blockchain systems can be categorized into three main types based on access control and
+Blockchain systems are categorized into three main types based on access control and data
 governance models~\cite{blockchain_consensus}:
 
 \begin{itemize}
-  \item \textbf{Public Blockchains (Permissionless):} Open to all participants without restrictions.
-  Anyone can join the network, validate transactions, and participate in consensus. Examples include
-  Bitcoin, Ethereum, and Litecoin. These systems prioritize decentralization and censorship resistance
-  but often sacrifice performance and energy efficiency.
-  
-  \item \textbf{Private Blockchains (Permissioned):} Controlled access restricted to specific
-  organizations or entities. Only authorized participants can join, validate, or access data.
-  Examples include enterprise solutions like Hyperledger Fabric deployments within corporations
-  and central bank digital currencies (CBDCs). These offer higher performance and privacy
-  but reduce decentralization benefits.
-  
-  \item \textbf{Consortium Blockchains (Semi-decentralized):} Controlled by a pre-selected group
-  of participants, typically industry partners or allied organizations. Examples include
-  R3's Corda for financial institutions, IBM Food Trust for supply chain management,
-  and Energy Web Chain for the energy sector. These balance decentralization with performance
-  and regulatory compliance.
+  \item \textbf{Public Blockchains (Permissionless):} In this type of blockchain, all participants can join without restrictions to
+  validate transactions, and participate in consensus. These systems usually
+  prioritize decentralization and censorship resistance while sacrificing performance and energy efficiency,
+  especially when Proof of Work is used to achieve consensus like in Bitcoin, Ethereum, or Litecoin.
+
+  \item \textbf{Private Blockchains (Permissioned):} These systems are characterized by a restricted controlled access for specific
+  organizations or entities. Only authorized participants can join and participate in the network.
+  These offer higher performance and privacy at the cost of decentralizing benefits.
+
+  \item \textbf{Consortium Blockchains (Semi-decentralized):} In this model the network is
+  controlled by a pre-selected group of participants, being it industry partners or allied organizations.
+  These models usually achieve a balance between decentralization, performance, and regulatory compliance.
 \end{itemize}
 
-Each type presents distinct trade-offs between decentralization, performance, governance,
-and trust assumptions, fundamentally influencing the choice of consensus mechanism and
-system architecture.
-
-In this section, we examine popular blockchain consensus protocols that address Byzantine
+In this section, we will examine popular blockchain consensus protocols that address Byzantine
 behavior under different system models and trust assumptions.
 
 \subsection{Proof of Work (PoW)}\label{sub:pow}
 
-Proof of Work, adopted by Bitcoin~\cite{bitcoin} and Ethereum~\cite{ethereum} (pre-2022),
-represents the first successful solution of a blockchain protocol.
-This consensus mechanism selects the next block producer through a computational
-competition where nodes (miners) compete to solve a cryptographic puzzle with
-adjustable difficulty.
+The first blockchain protocol was achieved by
+Proof of Work, introduced by Bitcoin~\cite{bitcoin} and adopted by Ethereum~\cite{ethereum} (pre-2022).
+The next block producer is selected by this consensus mechanism through a computational competition
+in which nodes (miners) compete to solve a mathematical puzzle with adjustable difficulty.
 
-The PoW algorithm operates as follows: miners collect pending transactions into a block
-candidate, then iteratively modify a nonce value while computing the block's hash
-using a cryptographic function (typically double SHA-256). The objective is to find
-a hash that meets the current difficulty target that automatically adjusts to
-maintain average block times (e.g., 10 minutes for Bitcoin).
+The PoW algorithm functions as follows: miners accumulate pending transactions into a block
+candidate, and subsequently iteratively modify a nonce value while computing the block's hash
+using a cryptographic function, like double SHA-256. The goal is to identify a hash that satisfies
+the current difficulty target and automatically adjusts to preserve the average block time (e.g., 10 minutes for Bitcoin).
 
-PoW provides several security guarantees: it ensures eventual consistency through
-the longest chain rule, requires attackers to control more than 50\% of the network's
-computational power for successful attacks, and creates an economic incentive structure
-through block rewards and transaction fees. However, this comes at the cost of
-significant energy consumption and limited transaction throughput.
+PoW offers a variety of security guarantees, including the longest chain rule, which
+guarantees eventual consistency, requires that assailants control over 50\% of
+the network's computational capacity for successful attacks, and the establishment of an
+economic incentive structure through block rewards and transaction fees. However, this
+comes at a cost of a large energy consumption and a restricted transaction throughput.
 
 \begin{figure}[h]
 	\centering
@@ -527,28 +515,30 @@ significant energy consumption and limited transaction throughput.
 
 \subsection{Proof of Stake (PoS)}\label{sub:pos}
 
-Proof of Stake replaces computational competition with economic stake as the basis
-for consensus participation and block production rights. In PoS protocols, validators
-are selected to create new blocks based on their stake rather than their
-computational power, significantly reducing energy consumption compared to Proof of Work protocols.
-
-The selection mechanism typically employs randomization weighted by stake size where
-validators with larger stakes have proportionally higher chances of being selected
-to produce the next block. Modern PoS implementations like Ouroboros~\cite{ouroboros},
+In Proof of Stake, nodes provide a stake that serves as the foundation
+for consensus participation and block production rights, replacing the computational competition of PoW. 
+Validators are chosen to generate new blocks in PoS based on the amount of their currency
+they are willing to stake, rather than their computational power. This approach
+considerably reduces energy consumption in comparison to Proof of Work protocols.
+  
+ A random selection function that is weighted by stake size is typically employed by
+ the selection mechanism. Validators with larger stakes have proportionally higher odds of being
+ selected to produce the next block. Modern PoS implementations like Ouroboros~\cite{ouroboros},
 Ethereum 2.0's Gasper~\cite{gasper}, and Tendermint~\cite{tendermint} use selection algorithms
-that provide cryptographic proofs of randomness and prevent manipulation.
+that provide cryptographic proofs of randomness and prevent tampering.
 
-PoS systems enforce honest behavior through economic penalties: validators must
-deposit stake as collateral, which can be partially or fully confiscated
-for provable misbehavior such as double-signing or violating protocol rules.
-This creates strong economic incentives for honest participation while enabling
-faster finality and higher transaction throughput than PoW systems.
+ Validators are required to deposit stakes as collateral in PoS systems, which can be
+ partially or fully confiscated in the event of illegal activity, such as double-signing or
+ violating protocol rules. This ensures that honest behavior is enforced through economic penalties.
+ This achieves a higher transaction throughput and quicker finality than PoW systems, while also
+ providing robust economic incentives for honest participation.
 
-Ethereum successfully transitioned from PoW to PoS in 2022, demonstrating the
-practical viability of this approach for large-scale blockchain networks. 
+ Ethereum successfully transitioned from PoW to PoS in 2022, thereby illustrating the
+ practical feasibility of this approach for large-scale blockchain networks. 
 
-Ethereum's transition to PoS although successful has opened the protocols up to vulnerabilities,
-one of which will be further discussed in Section~\ref{sub:bouncing_attack}.
+ Although Ethereum's transition to PoS was successful, it has exposed the
+ protocols to vulnerabilities. In Section~\ref{sub:bouncing_attack}, one of these
+ vulnerabilities will be further discussed.
 
 \begin{figure}[h]
 	\centering
@@ -560,25 +550,25 @@ one of which will be further discussed in Section~\ref{sub:bouncing_attack}.
 
 \subsection{Delegated Proof of Stake (DPoS)}\label{sub:dpos}
 
-Delegated Proof of Stake introduces a representative democracy model where token
-holders vote to elect a limited set of delegates responsible for block production and network governance.
+Delegated Proof of Stake introduces a representative democracy model,
+in which token holders vote to elect a restricted number of delegates who are
+responsible for network governance and block production.
 
-In DPoS systems, token holders continuously vote for delegates using their stake
-as voting power. The top-voted delegates form a rotating committee that takes
-turns producing blocks in a round-robin fashion, producing deterministic
-block times and higher transaction throughput compared to probabilistic consensus
-mechanisms like PoW or traditional PoS.
+In DPoS systems, token holders utilize their stake as a form of
+voting authority to consistently elect delegates.
+Compared to probabilistic consensus mechanisms such as PoW or traditional PoS, 
+the top-voted delegates form a rotating committee that alternates in the production of blocks
+in a round-robin fashion. This results in deterministic block latencies and a higher transaction throughput.
 
-DPoS implementations include EOSIO~\cite{dpos_eosio}, Tron~\cite{dpos_tron}, and the BitShares~\cite{bitshares}.
-These protocols offer several advantages: faster block confirmation times, typically one to three seconds,
-higher transaction throughput, and lower energy consumption. However, this comes
-at the cost of increased centralization, as only a few delegates
-control block production, potentially making the system more susceptible to
-collusion and censorship attacks.
+EOSIO~\cite{dpos_eosio}, Tron~\cite{dpos_tron}, and BitShares~\cite{bitshares} are all examples of DPoS implementations.
+These protocols provide a variety of benefits, including a reduction in energy consumption, a higher
+transaction throughput, and faster block confirmation periods, which typically range from one to three seconds.
+This is achieved at the expense of centralization, as the system is susceptible to
+censorship and collusion assaults due to the fact that only a small number of delegates have the ability to regulate block production.
 
-Delegate accountability is maintained through continuous voting: poorly performing
-or malicious delegates can be voted out by token holders, creating ongoing
-incentives for honest behavior and competent network operation.
+Continuous voting ensures delegate accountability, as token holders have the ability to vote out delegates who
+are performing inadequately or maliciously. This creates ongoing incentives for competent network operation
+and honest behavior.
 
 \begin{figure}[h]
 	\centering
