@@ -8,8 +8,8 @@
 \babel@toc {english}{}\relax 
 \babel@toc {portuguese}{}\relax 
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{List of Figures}{vii}{section*.4}%
-\contentsline {chapter}{List of Tables}{viii}{section*.5}%
+\contentsline {chapter}{List of Figures}{vi}{section*.4}%
+\contentsline {chapter}{List of Tables}{vii}{section*.5}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Context}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem}{2}{section.1.2}%
@@ -70,6 +70,5 @@
 \contentsline {section}{\numberline {6.1}Summary}{43}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Contributions}{43}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Future Work}{44}{section.6.3}%
-\contentsline {chapter}{Bibliography}{46}{section*.7}%
 \contentsline {chapter}{Appendices}{}{}
 \contentsline {chapter}{Annexes}{}{}
